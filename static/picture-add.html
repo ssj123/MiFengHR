@@ -1,0 +1,215 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="Bookmark" href="favicon.ico" >
+<link rel="Shortcut Icon" href="favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script><![endif]-->
+<!--/meta 作为公共模版分离出去-->
+
+<title>新增账单</title>
+<link href="lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+
+<!-- me修改的css样式 -->
+<link rel="stylesheet" type="text/css" href="css/systemmain.css">
+</head>
+<body>
+<div id="page-container" style="margin-top: 50px;">
+	<form class="form form-horizontal" id="form-article-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>用户ID：</label>
+			<div class="formControls col-xs-8 col-sm-8">
+				<input type="text" class="input-text radius radius" value=""  id="userid" >
+				
+			</div>
+			<div class="formControls col-xs-8 col-sm-2">
+				<a href="javascript:;" id="search" @click="search">检索</a>
+				
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">用户名：</label>
+			<div class="formControls col-xs-8 col-sm-9" id="UserName">
+				
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">地区：</label>
+			<div class="formControls col-xs-8 col-sm-9" id="Channel">
+				
+			</div>
+		</div>
+		
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span>支付方式：</label>
+			<div class="formControls col-xs-6 col-sm-2">
+				<span class="select-box">
+				<select name="" class="select">
+					<option value="0">支付宝</option>
+					<option value="1">微信</option>
+					<option value="11">银行卡</option>
+					<option value="12">其他</option>
+					<!-- <option value="13">├行业新闻</option> -->
+				</select>
+				</span>
+			</div>
+		</div>
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">账单明细：</label>
+			
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">奖金：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="" placeholder="" id="ta1" name="">
+			</div>
+		</div>
+		<div class="row cl box">
+			<label class="form-label col-xs-4 col-sm-2">大POS交易量：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="0" placeholder="" id="ta2-1" name="">
+			</div>
+			<!-- <div class="formControls col-xs-4 col-sm-3">
+				<input type="text" class="input-text radius" placeholder="请输入比例" value="" placeholder="" id="ta2-2" >
+			</div> -->
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">大POS新增：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="" placeholder="" id="ta2-3" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">大POS上月分润：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="" placeholder="" id="ta2-4" name="">
+			</div>
+		</div>
+		<div class="row cl box">
+			<label class="form-label col-xs-4 col-sm-2">MPOS交易量：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="0" placeholder="" id="ta3-1" name="">
+			</div>
+			<!-- <div class="formControls col-xs-4 col-sm-3">
+				<input type="text" class="input-text radius" placeholder="请输入比例" value="" placeholder="" id="ta3-2" >
+			</div> -->
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">MPOS新增：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="" placeholder="" id="ta3-3" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">MPOS上月分润：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="" placeholder="" id="ta3-4" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">机器售卖：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="" placeholder="" id="ta4" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">官方返利：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="" placeholder="" id="ta5" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">上月欠款：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text radius" value="" placeholder="" id="ta6" name="">
+			</div>
+		</div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red"></span></label>
+            
+            <div class="formControls col-xs-8 col-sm-5">
+                <a href="javascript:;" id="search" @click="count">计算工资总额</a>
+                
+            </div>
+        </div>
+
+		<div class="row cl ">
+            <label class="form-label col-xs-4 col-sm-2">合计工资：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text radius" value="" placeholder="" id="Wages" name="">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">订单状态：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text radius" value="" placeholder="" id="state" name="">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">备注：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text radius" value="" placeholder="" id="remark" name="">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">创建时间：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text radius" value="" placeholder="" id="timedata" name="">
+            </div>
+        </div>
+
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button @click="putin" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 创建账单</button>
+				
+				<button @Click="close" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script> 
+ 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.page.js"></script> 
+
+<!--/_footer /作为公共模版分离出去-->
+
+
+<!-- 自己的js -->
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/picture-add-ajax.js"></script>
+
+<!--请在下方写此页面业务相关的脚本-->
+<!-- <script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script>  -->
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

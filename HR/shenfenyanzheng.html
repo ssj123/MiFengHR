@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>身份验证</title>
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/all.css"/>
+  </head>
+  <body>
+    <style type="text/css">
+      .row{ line-height: 40px; margin: 0; }
+      .col-xs-4{ text-align: right;}
+      .col-xs-7{ }
+      .form-group{ border-bottom: 1px #EAEAEA solid; }
+      .form-control{ background: none !important;}
+      .bar{ height: 3rem;}
+      .bar .title{ line-height: 3rem; font-size: 1.6rem;}
+      .bar .close-picker{ line-height: 3rem; font-size: 1.6rem;}
+      .imgz,.imgf,.imgc{ width: 100%; display: none;}
+      .urlz,.urlf,.urlc{ display: none;}
+    </style>
+    <div class="heimu"></div>
+    <div class="fabuactive">正在上传，请稍后....</div>
+    <div class="alltop">
+      <div class="backone">
+        <span class="glyphicon glyphicon-menu-left"></span><b>返回</b>
+      </div>
+      <div class="refresh">
+        <span class="glyphicon glyphicon-refresh"></span><b>刷新</b>
+      </div>
+    </div>  
+    <div class="container">
+      <div class="row text-center" style="border-bottom: 1px #EAEAEA solid;">
+        进行身份验证后，才能申请提现。
+      </div>
+      <div class="urlz"></div>
+      <div class="urlf"></div>
+      <div class="urlc"></div>
+      <div class="row" style="padding-top: 25px;">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-xs-4 control-label">身份证号</label>
+            <div class="col-xs-7">
+              <input type="text" class="form-control" id="card" placeholder="身份证号">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-xs-4 control-label">真实姓名</label>
+            <div class="col-xs-7">
+              <input type="text" class="form-control" id="name" placeholder="真实姓名">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="inputPassword3" class="col-xs-4 control-label">性别</label>
+            <div class="col-xs-7">
+              <input type="radio" name="sex" id="inlineRadio1" value="0"> 男
+              <input type="radio" name="sex" id="inlineRadio2" value="1"> 女
+            </div>
+          </div>
+
+        <div class="form-group">
+            <label for="city-picker" class="col-xs-4 control-label" >现居地点</label>
+            <div class="col-xs-7">
+                <input type="text" class="form-control" id="city" placeholder="现居地点">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city-picker" class="col-xs-4 control-label" >银行卡照正面</label>
+            <div class="col-xs-7">
+              <img src="" class="imgz"/>
+                <label class="btn-upload" for="cardz" style="border: 1px #CCCCCC solid; padding: 0 10px; border-radius: 3px; background: #ffa328; color: #FFFFFF;">
+                    <input type="file" class="sr-only" id="cardz" name="file" >
+                     银行卡照正面
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city-picker" class="col-xs-4 control-label" >银行卡照反面</label>
+            <div class="col-xs-7">
+              <img src="" class="imgf"/>
+                <label class="btn-upload" for="cardf" style="border: 1px #CCCCCC solid; padding: 0 10px; border-radius: 3px; background: #ffa328; color: #FFFFFF;">
+                    <input type="file" class="sr-only" id="cardf" name="file" >
+                     银行卡照反面
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="city-picker" class="col-xs-4 control-label" >手持身份证照</label>
+            <div class="col-xs-7" >
+              <img src="" class="imgc"/>
+              <label class="btn-upload" for="cardc" style="border: 1px #CCCCCC solid; padding: 0 10px; border-radius: 3px; background: #ffa328; color: #FFFFFF;">
+                    <input type="file" class="sr-only" id="cardc" name="file" >
+                     手持身份证照
+                </label>
+            </div>
+        </div>
+        <div class="checkbox text-center">
+            <label><input type="checkbox" style="margin-top: 12px;">勾选同意xxxx</label>
+        </div>
+          <div>
+            <div class="col-xs-offset-4 col-xs-4">
+              <div class="btn btn-default baocun">保存验证</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(".baocun").click(function(){
+        $(".heimu").show();
+        $(".fabuactive").show();
+        var IDCard = $("#card").val();
+        var Sex = $("input[name='sex']:checked").val();
+        var Name = $("#name").val();
+        var Residence = $("#city").val();
+        var IDCardPicP = $(".urlz").text();
+        var IDCardPicN = $(".urlf").text();
+        var BankCardPic = $(".urlc").text();
+        
+        var js = "{'IDCard':'"+IDCard+"','Sex':'"+Sex+"','Name':'"+Name+"','Residence':'"+Residence+"',\
+'IDCardPicP':'"+IDCardPicP+"','IDCardPicN':'"+IDCardPicN+"','BankCardPic':'"+BankCardPic+"'}"
+        $.ajax({
+              type: "POST",
+              url: jkurl,
+              beforeSend: function(request) {request.setRequestHeader("req", "125");request.setRequestHeader("TokenID", tokenid);},
+              dataType:"json",
+              data:js,
+              success: function(result) {
+                if(result.code == 1){
+                  $(".heimu").hide();
+              $(".fabuactive").hide();
+                        window.location.href='member.html';
+                        }else{
+                          alert(result.errormsg);
+                          $(".heimu").hide();
+              $(".fabuactive").hide();
+                        }
+          }
+          });
+      })
+      
+      
+      function getObjectURL(file) {
+        var url = null ; 
+        if (window.createObjectURL!=undefined) { // basic
+          url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+          url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+          url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url ;
+      }
+      function readFile(obj){   
+          var file = obj.files[0];      
+          if(!/image\/\w+/.test(file.type)){  alert("请确保文件为图像类型"); return false;   }   
+          var reader = new FileReader();   
+          reader.readAsDataURL(file);   
+          reader.onload = function(e){   
+            $(".heimu").show();
+          $(".fabuactive").show();
+          var a = this.result.split(',')[1];
+          var b = encodeURIComponent(a);
+          var js = "{'pic':'"+b+"'}";
+          
+            $.ajax({
+                type: "POST",
+                url: jkurl,
+                beforeSend: function(request) {
+                    request.setRequestHeader("req", "420");
+                    request.setRequestHeader("TokenID", tokenid);
+                },
+                dataType:"json",
+                data:js,
+                success: function(result) {
+                  if(result.code == 1){
+                      src = result.resdata;
+                        $(".imgz").show().attr("src", picurl+src) ;
+                        $(".urlz").text(src);
+                        $(".heimu").hide();
+                $(".fabuactive").hide();
+                      }else{
+                        alert(result.errormsg)
+                      }
+                    }
+            });
+          }   
+      } 
+      $("#cardz").change(function(){      
+        readFile(this);
+        var objUrl = getObjectURL(this.files[0]) ;
+      });
+      function readFilef(obj){   
+          var file = obj.files[0];      
+          if(!/image\/\w+/.test(file.type)){  alert("请确保文件为图像类型"); return false;   }   
+          var reader = new FileReader();   
+          reader.readAsDataURL(file);   
+          reader.onload = function(e){   
+            $(".heimu").show();
+          $(".fabuactive").show();
+          var a = this.result.split(',')[1];
+          var b = encodeURIComponent(a);
+          var js = "{'pic':'"+b+"'}";
+          
+            $.ajax({
+                type: "POST",
+                url: jkurl,
+                beforeSend: function(request) {
+                    request.setRequestHeader("req", "420");
+                    request.setRequestHeader("TokenID", tokenid);
+                },
+                dataType:"json",
+                data:js,
+                success: function(result) {
+                  if(result.code == 1){
+                      src = result.resdata;
+                        $(".imgf").show().attr("src", picurl+src) ;
+                        $(".urlf").text(src);
+                        $(".heimu").hide();
+                $(".fabuactive").hide();
+                      }else{
+                        alert(result.errormsg)
+                      }
+                    }
+            });
+          }   
+      } 
+      $("#cardf").change(function(){      
+        readFilef(this);
+        var objUrl = getObjectURL(this.files[0]) ;
+      });
+      function readFilec(obj){   
+          var file = obj.files[0];      
+          if(!/image\/\w+/.test(file.type)){  alert("请确保文件为图像类型"); return false;   }   
+          var reader = new FileReader();   
+          reader.readAsDataURL(file);   
+          reader.onload = function(e){   
+            $(".heimu").show();
+          $(".fabuactive").show();
+          var a = this.result.split(',')[1];
+          var b = encodeURIComponent(a);
+          var js = "{'pic':'"+b+"'}";
+          
+            $.ajax({
+                type: "POST",
+                url: jkurl,
+                beforeSend: function(request) {
+                    request.setRequestHeader("req", "420");
+                    request.setRequestHeader("TokenID", tokenid);
+                },
+                dataType:"json",
+                data:js,
+                success: function(result) {
+                  if(result.code == 1){
+                      src = result.resdata;
+                        $(".imgc").show().attr("src", picurl+src) ;
+                        $(".urlc").text(src);
+                        $(".heimu").hide();
+                $(".fabuactive").hide();
+                      }else{
+                        alert(result.errormsg)
+                      }
+                    }
+            });
+          }   
+      } 
+      $("#cardc").change(function(){      
+        readFilec(this);
+        var objUrl = getObjectURL(this.files[0]) ;
+      });
+    </script>
+    <script src="js/peizhi.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

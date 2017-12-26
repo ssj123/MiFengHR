@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>求职进展</title>
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+    <!-- <script src="time/mobiscroll.core-2.5.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="time/mobiscroll.core-2.5.2-zh.js" type="text/javascript" charset="utf-8"></script>
+<script src="time/mobiscroll.datetime-2.5.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="time/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript" charset="utf-8"></script>
+<script src="time/mobiscroll.android-ics-2.5.2.js" type="text/javascript" charset="utf-8"></script> 
+<link rel="stylesheet" type="text/css" href="time/mobiscroll.android-ics-2.5.2.css"/>
+<link rel="stylesheet" type="text/css" href="time/mobiscroll.animation-2.5.2.css"/>
+<link rel="stylesheet" type="text/css" href="time/mobiscroll.core-2.5.2.css"/> -->
+</head>
+
+<body>
+    <style type="text/css">
+    body{
+        background: #eee;
+    }
+    .container {
+        padding-top: 10px;
+        padding-bottom: 50px;
+    }
+
+    .center2 {
+        border: 1px #EAEAEA solid;
+        margin-bottom: 15px;
+    }
+
+    .center2 .row {
+        padding: 1rem;
+        background: #fff;
+        margin-bottom: 1rem;
+    }
+
+    .zhiwei {
+        color: #179ef3;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+    .qiyename {
+        font-size: 1.4rem;
+        line-height: 3rem;
+    }
+
+    .qiyename a {
+        color: #666666;
+    }
+
+    .xinzi {
+        color: #da0000;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+    .alt {
+        line-height: 2rem;
+    }
+
+    .quyu {
+        float: left;
+        background: url(img/dd.png) no-repeat 0rem 0.4rem;
+        background-size: 1rem;
+        padding-left: 1.2rem;
+        font-size: 1.2rem;
+        color: #666;
+    }
+
+    .time {
+        float: left;
+        background: url(img/xl.png) no-repeat 0rem 0.4rem;
+        background-size: 1rem;
+        padding-left: 1.2rem;
+        font-size: 1.2rem;
+        color: #666;
+        margin-left: 10px;
+    }
+
+    .xueli {
+        float: left;
+        background: url(img/sj.png) no-repeat 0rem 0.4rem;
+        background-size: 1rem;
+        padding-left: 1.2rem;
+        font-size: 1.2rem;
+        color: #666;
+        margin-left: 10px;
+    }
+
+    .yj {
+        border-radius: 2px;
+        padding: 0.2rem 0;
+        font-weight: 600;
+        background: #179ef3;
+        color: #FFFFFF;
+    }
+
+    .quyu2 {
+        float: left;
+        /*background: url(img/nannv.png) no-repeat 0rem 0.4rem;*/
+        background-size: 1rem;
+        padding-left: 1.2rem;
+        font-size: 1.2rem;
+        color: #666;
+    }
+
+    .time2 {
+        float: left;
+        background: url(img/nianji.png) no-repeat 0rem 0.4rem;
+        background-size: 1rem;
+        padding-left: 1.2rem;
+        font-size: 1.2rem;
+        color: #666;
+        margin-left: 10px;
+    }
+
+    .quyu3 {
+        float: left;
+        background: url(img/tiem.png) no-repeat 0rem 0.4rem;
+        background-size: 1rem;
+        padding-left: 1.2rem;
+        font-size: 1.2rem;
+        color: #666;
+        margin-top: 10px;
+    }
+
+    .bottom {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        text-align: center;
+        background: #ffa328;
+        color: #FFFFFF;
+        width: 100%;
+        line-height: 45px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .bottom .col-xs-6 {
+        font-weight: 600;
+    }
+
+    .ok {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        background: #fff;
+        top: 50%;
+        overflow: hidden;
+        margin-top: -100px;
+        display: none;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+
+    .ok2 {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        background: #fff;
+        top: 50%;
+        overflow: hidden;
+        margin-top: -100px;
+        display: none;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+
+    .ok3 {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        background: #fff;
+        top: 50%;
+        overflow: hidden;
+        margin-top: -100px;
+        display: none;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+
+    .ok4,
+    .ok5 {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        background: #fff;
+        top: 50%;
+        overflow: hidden;
+        margin-top: -100px;
+        display: none;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+
+    .ok4 input,
+    .ok5 input {
+        border: 1px solid #999;
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .ok4 p,
+    .ok5 p {
+        font-size: 12px;
+        color: #fa4c00;
+        margin-top: 10px;
+    }
+
+    .okmess {
+        line-height: 30px;
+        text-align: center;
+        border: 1px #EAEAEA solid;
+        padding: 20px 0;
+    }
+
+    .okb {
+        float: left;
+        width: 50%;
+        background: #49abfe;
+        line-height: 35px;
+        text-align: center;
+    }
+
+    .okb a {
+        color: #FFFFFF;
+    }
+
+    .red {
+        margin-bottom: 15px;
+        color: #fa4c00;
+        font-weight: 600;
+        font-size: 1.6rem;
+    }
+    .reda {
+        /*margin-bottom: 15px;*/
+        color: #fa4c00;
+        font-weight: 600;
+        /*font-size: 1rem;*/
+        float: left;
+        /*background: url(img/nannv.png) no-repeat 0rem 0.4rem;*/
+        background-size: 1rem;
+        /*padding-left: 1rem;*/
+        margin-right: 1.2rem ;
+        font-size: 1.2rem;
+    }
+
+    .bo {
+        border: 1px #EAEAEA solid;
+        padding: 10px;
+        margin-bottom: 10px;
+        color: #666;
+    }
+
+    .qiyexinxi a {
+        color: #333;
+    }
+
+    .qiyeimg {
+        width: 20%;
+        margin-left: 5%;
+        float: left;
+        overflow: hidden;
+    }
+
+    .qiyeimg img {
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    .qiyealt {
+        float: right;
+        width: 70%;
+        line-height: 30px;
+    }
+
+    .qr2 {
+        width: 100px;
+        margin: 20px auto;
+        background: #49abfe;
+        line-height: 35px;
+        color: #FFFFFF;
+        border-radius: 2px;
+    }
+
+    .mianshididian {
+        display: none;
+    }
+
+    .mianshihover {
+        color: #179EF3;
+    }
+
+    .ok3qx,
+    .ok3qr,
+    .ok4qr {
+        color: #FFFFFF;
+    }
+
+    .ok2close {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        float: right;
+    }
+    .r{
+        float: right;
+        overflow: hidden;
+    }
+    </style>
+    <div class="heimu"></div>
+    <div class="fabuactive">努力加载中，请稍后....</div>
+    <div class="alltop">
+        <div class="backone2">
+            <a href="javascript:;" class="returna"><span class="glyphicon glyphicon-menu-left"></span><b>返回</b></a>
+        </div>
+        <div class="refresh">
+        <a href="#">
+            <span class="glyphicon glyphicon-refresh"></span><b>刷新</b></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="center2">
+            <div class="row">
+                <div class="col-xs-8" style="font-size: 1.4rem;">
+                    <div class="zhiwei">{{position}}</div>
+                    <div class="qiyename"><a href="#">{{company}}</a></div>
+                    <div class="alt">
+                        <div class="quyu">{{area}}</div>
+                        <div class="time">{{worktime}}</div>
+                        <div class="xueli">{{edueational}}</div>
+                        <div class="clearfix"></div>
+                        <div class="quyu2">状态：</div>
+                        <div class="reda">{{sex}}</div>
+                        <div class="quyu2">时间：</div>
+                        <div class="reda">{{agerange}}</div>
+                        <div class="clearfix"></div>
+                        <div class="quyu2">原因：</div>
+                        <div class="reda">{{sex}}</div>
+                        <!-- <div class="clearfix"></div> -->
+                        <!-- <div class="quyu3" style="width: 100%;">发布于： {{createtime}}</div> -->
+                    </div>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <div class="xinzi">{{wages}}</div>
+                    <div></div>
+                    <!-- <div class="clearfix"></div> -->
+                        
+                        <div class="r">{{sex}}</div>
+                        <div class="r">投递人：</div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    <script type="text/javascript" src="../lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/vue.min.js"></script>
+    <script type="text/javascript" src="../lib/common.js"></script>
+    <script src="../lib/soha.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/qiuzhijinzhan_ajax.js"></script>
+    <script src="js/peizhi.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>

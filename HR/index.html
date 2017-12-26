@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>蜜蜂速聘</title>
+		<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+		<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+		 <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/peizhi.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/awesomplete.min.js" type="text/javascript" charset="utf-8"></script> -->
+		 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		 <link rel="stylesheet" href="../lib/css/mpicker.css">
+		<link rel="stylesheet" type="text/css" href="css/awesomplete.css"/>
+	</head>
+	<body>
+		<style type="text/css">
+			a:hover{ text-decoration: none !important; color: #FFFFFF;}
+			.form-control{border: 1px #ccc solid;} 
+			.container{  width: 100%; padding: 0; overflow: hidden;}
+			.top{ background: #ffa328; line-height: 45px; padding: 0 1rem; }
+			.bai{ color: #FFFFFF;}
+			.bai a{ color: #FFFFFF;}
+			.nav{ border-bottom: 1px #EAEAEA solid; line-height: 45px; width: 100%;}
+			.btn-group{ width: 100%;}
+			.btn-group .btn-default{ width: 20%; display: block; border: 0; margin-left: 0 !important;}
+			.glyphicon{ font-size: 1.6rem; top: 5px;}
+			.f16{ font-size: 1.6rem; font-weight: 600;}
+			.f15{ font-size: 1.5rem; font-weight: 600;}
+			
+			.navlist{ position: relative; }
+			.navlist .nava{ display:block; float: left; width: 20%; overflow: hidden; height: 45px; text-align: center; color: #333333;border-right: 1px solid #eee;
+    margin-bottom: 0.3rem;}
+			.navlist .nava .span{ display: inline-block; width: 80%; text-overflow: ellipsis; overflow: hidden; white-space:nowrap;}
+			.showorno{ display: none; width: 100%; height: 100%; background: #FFFFFF; position: absolute; left: 0; top: 91px; z-index: 999;}
+			
+			.px{ position: relative;}
+			
+			.mengban{display: none; position: absolute; left: 0; top: 90px; z-index: 998; background: url(img/tm.png); width: 100%; height: 100%;}
+			.pxlist{ display: none; position: absolute; left: 0; top: 45px; width: 30%; z-index: 999; border: 1px #EAEAEA solid; 
+			border-radius: 3px; background: #FFFFFF;}
+			.pxlist a{ display: block; width: 100%; text-align: center; color: #333333;}
+			
+			.yaoqiu{ padding: 5px 15px; font-size: 1.6rem; font-weight: 600;}
+			
+			.yaoxueli{ padding: 0 15px;}
+			.yaoxueli .btn{ margin-bottom: 10px; border: 1px #EAEAEA solid; background: #FFFFFF;}
+			.yaoxueli .btn:hover{ color: #FFFFFF;}
+			.act{ background: #ffa328 !important; color: #FFFFFF !important; border: 1px #FFFFFF solid;}
+			
+			/*.center2{ padding-bottom: 48px; }*/
+			.center2 .row{ padding: 1rem 0; margin: 0; border-bottom: 1px #EAEAEA solid;}
+			.center2 .a{ color: #333; display: block;}
+			.center2 a{ color: #333;}
+			.zhiwei{ color: #179ef3; font-size: 1.6rem; font-weight: 600;}
+			.qiyename{ padding: 0.6rem 0;  color: #666; font-size: 1.2rem; }
+			.xinzi{ color: #da0000; font-size: 1.4rem; font-weight: 600;}
+			.quyu{ float: left; background: url(img/dd.png) no-repeat 0rem 0rem; background-size: 1rem; padding-left: 1.2rem; font-size: 1rem;
+			 color: #666; }
+			.time{ float: left; background: url(img/xl.png) no-repeat 0rem 0rem; background-size: 1rem; padding-left: 1.2rem; font-size: 1rem;
+			  margin-left: 10px; color: #666; }
+			.xueli{ float: left; background: url(img/sj.png) no-repeat 0rem 0rem; background-size: 1rem; padding-left: 1.2rem; font-size: 1rem;
+			  margin-left: 10px; color: #666; }
+			.yj{ background: #49abfe; width: 100%; color: #FFFFFF; font-size: 1.4rem; border-radius: 2px; padding: 0.2rem 0; font-weight: 600;}
+			
+			.bottom{ line-height: 45px; background: #ffa328; color: #FFFFFF; text-align: center; position: fixed; left: 0; bottom: 0px; width: 100%;  z-index: 9;}
+			.bottom a{ }
+			.red{ color: #f00; font-size: 2rem;}
+			
+			.zhiweimiaoshu{ font-size: 1.6rem; text-overflow: ellipsis; overflow: hidden; white-space:nowrap; margin-top: 10px;}
+			
+			
+			.goyaoqiu{width: 90%; margin: 0px auto; margin-top: 15px; line-height: 45px; text-align: center; color: #FFFFFF; 
+				font-size: 1.8rem; background: #ffa328; border-radius: 5px;}
+			
+			.right1,.right2,.right3,.right4,.right5{ position: fixed; top: 0; right: -100%; width: 100%; height: 100%; overflow: scroll; padding: 1rem; background: #FFFFFF; z-index:1001; transition: all 0.5s;}
+			
+			.righthover{ right: 0; transition: all 0.3s;}
+			#name::-webkit-input-placeholder{ font-size: 0.8rem; color: #999;}
+			#name::-moz-placeholder{ font-size: 0.8rem; color: #999;}
+			.index-search{ background: #ffa328; font-weight: 600; color: #FFFFFF; border: none;}
+			.guanjianci{ text-align: center;  font-size: 1.5rem; line-height: 2rem; font-weight: 600; }
+			.weizhi,.myweizhi{ padding: 6px 10px; margin: 5px; margin-left: 0; cursor: pointer; border: 1px #CCCCCC solid; border-radius: 3px; display: inline-block;}
+			
+			.hangyechoose{ line-height: 35px; display: block; width: 100%; padding-left: 10%; background: #FFFFFF; border-bottom: 1px #FFFFFF solid;}
+			.zhiyechoose{ line-height: 35px; display: block; width: 100%; padding-left: 10%; background: #EAEAEA; border-bottom: 1px #FFFFFF solid;}
+			.hangyechoosehover{ background: #EAEAEA; color: #000;}
+			
+			.myweizhi:hover{ background: #ffa328; color: #FFFFFF;}
+			.weizhi:hover{ background: #ffa328; color: #FFFFFF;}
+			/*.hangyechoose:hover{ background: #ffa328; color: #FFFFFF;}
+			.zhiyechoose:hover{ background: #ffa328; color: #FFFFFF;}*/
+			.more{ margin-bottom: 45px; width: 100%; text-align: center; background: #5CB85C; color: #FFFFFF; font-size: 1.5rem; padding: 10px 0;}
+			.closeright{ float: left; width: 15%; margin-right: 3%; text-align: center;  padding: 6px 0; font-size: 1.2rem; border-radius: 3px; background: #ffa328; color: #FFFFFF; margin-bottom: 15px;}
+			.footer{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				background: #ff9e42 ;
+				padding: 10px 0;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				overflow: hidden;
+				width: 100%;
+			}
+			.footer div{
+				width: 100%;
+				font-size: 1.5rem;
+				line-height: 2rem;
+				color: #fff;
+			}
+			.banner{width: 100%; height: auto;}
+    		.banner img{width: 100%; height: auto;}
+		</style>
+		
+		<div class="heimu"></div>
+		<div class="fabuactive">努力加载中，请稍后....</div>
+		
+		
+		
+		<div class="container">
+			<div class="right1">
+				<div class="closeright"><span class="glyphicon glyphicon-menu-left"></span><b>返回</b></div>
+				<div class="input-group" style="float: left; width: 80%;">
+		        	 <input type="text" class="form-control" name="name" id="name" placeholder="职业名,公司名，发布人手机号，手机号"/>
+		        	 <div class="input-group-addon index-search">搜索</div>
+		       </div>
+		       <div class="clearfix"></div>
+			</div>
+			
+			<div class="mengban"></div>
+			
+			<div class="top">
+				<div class="row bai">
+					<div class="col-xs-3 text-left">
+						<span class="glyphicon glyphicon-search"></span>
+					</div>
+					<div class="col-xs-6 text-center f16">求职列表</div>
+					<div class="col-xs-3 text-right bai f15 fabuzhiwei"><a :href="myurl"><span class="glyphicon glyphicon-user"></span></a></div>
+				</div>
+			</div>
+			<div class="banner">
+            	<img src="../img/timg.jpg">
+            </div>
+			<div class="nav">
+				<div class="navlist">
+					
+					<a class="nava px"><span class="zui span select-value3">分类<span class="caret"></span></span></a>
+					<a class="nava index-city"><span class="index-city-name span select-value1" data-id="">城市<span class="caret"></span></span></a></button>
+					<a class="nava index-hangye"><span class="index-hangye-name span partTime" data-id="">兼职区</span></a></button>
+					<!--<a class="nava index-zhiye" ><span class="index-zhiye-name span" data-id="">职位<span class="caret"></span></span></a></button>-->
+					<a class="nava index-yaoqiu"><span class="index-yaoqiu-name span"></span></a>
+					<a class="nava index-yaoqiu"><span class="index-yaoqiu-name span"></span></a>
+					<div class="clearfix"></div>
+				</div>
+				
+			</div>
+
+			<div class="guanjianci"></div>
+			<div class="center2" v-for="item in labels">
+				<div class="vfor">
+					<a :href="item.xqurl">
+						
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="zhiweimiaoshu">{{item.positioncontent}}</div>
+									<div class="zhiwei">{{item.position}}</div>
+									<div class="qiyename">{{item.company}}</div>	
+									<div class="alt">
+										<div class="quyu">{{item.area}}</div>
+										<div class="time">{{item.worktime}}</div>
+										<div class="xueli">{{item.edueational}}</div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div class="col-xs-4 text-center">
+									<div class="xinzi">{{item.wages}}</div>
+									<div class="xinzi">佣金&nbsp{{item.commission}}</div>
+									<a :href="item.xqurl">	
+										
+											<div class="yj">赚取佣金</div>
+										
+									</a>
+								</div>
+							</div>
+						
+					</a>
+				</div>
+				
+			</div>
+
+			<a href="javascript:;"><div class="more" @click="moredata" data-id="2">加载更多...</div></a>
+			<div class="footer"><div class="study">学习</div>
+				<!-- <div class="study">学习</div> -->
+				<div class="myhome">我的中心</div>
+			</div>
+			<!--<div class="bottom"><a href='denglu.html' class='bai f16'>登录<span class='red'>·</span></a></div>-->
+		</div>
+		<script src="../lib/soha.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../lib/jquery.min.js"></script>
+		<script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../lib/vue.min.js"></script>
+		<script type="text/javascript" src="../lib/common.js"></script>
+		<script type="text/javascript" src="js/index_ajax.js"></script>
+		<!-- <script type="text/javascript" src="js/parameter.js"></script> -->
+		
+ <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="../lib/js/json.js"></script>
+    <script src="../lib/js/jsonExchange.js"></script>
+    <script src="../lib/js/mPicker.min.js"></script>
+<script type="text/javascript">	
+
+</script>
+		<!-- <script src="js/search.js" type="text/javascript" charset="utf-8"></script> -->
+	</body>
+</html>

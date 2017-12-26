@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>聚贤人才</title>
+		<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	</head>
+	<body>
+		<div class="alltop">
+			<div class="backone">
+			<a href="javascript:;" class="returna">
+				<span class="glyphicon glyphicon-menu-left"></span><b>返回</b>
+				</a>
+			</div>
+			<div class="refresh">
+			<a href="#">
+				<span class="glyphicon glyphicon-refresh"></span><b>刷新</b></a>
+			</div>
+		</div>	
+		<div class="container" style="border: 1px #ccc solid; margin: 15px;">
+			<div style="color: #fb896b; line-height: 40px; border-bottom: 1px #CCCCCC solid; font-weight: 600; font-size: 1.5rem;">返佣规则</div>
+			<div style="line-height: 25px; padding: 10px 0;">
+				<p>1.完成兼职猎头账号注册，注册完成后进入【蜜蜂速聘】菜单查看最新职位，将职位分享转发，求职者通过您的分享链接入职并过了返费周期后您就可以赚取佣金啦！（职位不同返费周期有所不同）</p>
+				<p>2.完成兼职猎头账号注册，并推荐他人注册兼职猎头账号，您所推荐的兼职猎头获取佣金后，您也可以获取佣金！</p>
+				<p>佣金分配：</p>
+					<p>1.伯乐奖：推荐他人入职并过返费周期，获取佣金；</p>
+				    <p>2.兼职猎头推荐奖：推荐的兼职猎头所获佣金的5%（两代）；</p>
+				    <p>3.团队管理奖：团队成员所获佣金总额的2%；</p>
+				<p>佣金发放时间：每月5号、20号</p>
+			</div>
+		</div>
+		<a  id="tuijianzhuce" style="background: #ffa328; color: #FFFFFF; padding: 10px; text-align: center; display: block;">注册成为猎头</a>
+		<script src="js/peizhi.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../lib/common.js"></script>
+		<script type="text/javascript">
+			var urlUserid = ''+GetQueryString("userid"); //用户
+			var url = 'HRzhuce.html?userid='+urlUserid ;
+			$("#tuijianzhuce").attr("href",url);
+		</script>
+	</body>
+</html>

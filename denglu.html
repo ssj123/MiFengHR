@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户登录</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+	</head>
+	<body>
+		<style type="text/css">
+			*{ margin: 0; padding: 0;}
+			.all{ width: 100%; overflow: hidden;}
+			.logo{ width: 60%; margin:15% auto; margin-top: 0; }
+			.logo img{ width: 100%;}
+			
+			.login{position: absolute;left: 50%; margin-left: -35%; top: 20%; width: 70%; }
+			
+			.bj{ background: url(img/lgoinabj.png); width: 100%; border: 1px #FFFFFF solid; border-radius: 5px; padding-bottom: 15px;}
+			.shuru{ padding-top: 10px;}
+			.left{ float: left; font-size: 0.8rem; color: #FFFFFF;}
+			.left1{  padding-top: 6px; width: 30%; text-align: right; }
+			.left2{ width: 70%; position: relative;}
+			.yanzhengma{ font-size: 0.6rem !important; position: absolute; right: 20px; top: 0px; padding: 6px 8px; background:#FFFFFF; color: #666; border-radius: 3px; border: 1px #FFFFFF solid;}
+			input{ background: none; border: none; color:#FFFFFF; padding: 6px 8px; width: 100%;}
+			input:focus{ border: none; outline: none;}
+			input::-webkit-input-placeholder{
+                color: #fff;
+            }
+            .clear{ clear: both;}
+            
+            .denglu{  background: url(img/lgoinabj.png); border-radius: 3px; margin-top: 20px; text-align: center; 
+            color: #FFFFFF; padding: 5px 0; border-radius: 3px; border: 1px #FFFFFF solid; text-decoration: none;"}
+		</style>
+		<div class="all">
+			<img src="img/loginbj.jpg" style="width: 100%;"/>
+			
+			<div class="login">
+				<div class="logo">
+					<img src="img/loginlogo.png"/>
+				</div>
+				<div class="bj">
+					<div class="shuru">
+						<div class="left left1">手机号：</div>
+						<div class="left left2"><input type="text" name="" id="shoujihao" value="" placeholder="请输入手机号" /></div>
+						<div class="clear"></div>
+					</div>
+					<div class="shuru">
+						<div class="left left1">密码：</div>
+						<div class="left left2"><input type="password" name="" id="password" value="" placeholder="请输入密码" /></div>
+						<div class="clear"></div>
+					</div>
+					<div class="shuru">
+						<div class="left left1">验证码：</div>
+						<div class="left left2"><input type="text" name="" id="yanzhengma" value="" placeholder="输入1111" />
+						<div class="yanzhengma">验证码</div>
+						<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					
+				</div>
+				<div class="denglu" id="login">登录</div>
+				<a href="zhuce.html" style="display: block" class="denglu">注册</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var x = 60;
+			function getx(){
+				x = x-1;
+				$(".yanzhengma").text("重新发送("+x+")");
+				if(x == 0){
+					$(".yanzhengma").text("获取验证码");
+					$(".yanzhengma").on("click",function(){
+						x = 60;
+						getx();
+						alert("给一个验证码");
+					});
+				}else{
+					setTimeout("getx()",1000);
+				}
+			}
+			$(".yanzhengma").click(function() {
+				var shoujihao = $("#shoujihao").val();
+				var js = "{'tel':"+shoujihao+"}";
+				$(this).off("click");
+				getx();
+                $.ajax({
+                    type: "POST",
+                    url: "api/service",
+                    beforeSend: function(request) {
+                        request.setRequestHeader("req", "101");
+                    },
+                    dataType:"json",
+                    data:js,
+                    success: function(result) {
+                        if(result.code == 1){
+                        	alert("验证码已发送");
+                        }else{
+                        	alert(result.errormsg)
+                        }
+                    }
+                });
+            });
+            $("#login").click(function(){
+            	var shoujihao = $("#shoujihao").val();
+            	var dcode = $("#yanzhengma").val();
+            	var password = $("#password").val();
+            	var js = "{'tel':"+shoujihao+",'dcode':"+dcode+",'password':"+password+"}";
+            	$.ajax({
+                    type: "POST",
+                    url: "api/service",
+                    beforeSend: function(request) {
+                        request.setRequestHeader("req", "110");
+                    },
+                    dataType:"json",
+                    data:js,
+                    success: function(result) {
+                        if(result.code == 1){
+                        	alert("登录成功");
+                        	localStorage.setItem("tokenid", result.resdata.TokenID);
+//                  		window.location.href='index.html';
+                        }else{
+                        	alert(result.errormsg)
+                        }
+                    }
+                });
+            })
+			$(function(){
+				var h = $(window).height();
+				$(".all").height(h);
+			})
+			
+		</script>
+	</body>
+</html>

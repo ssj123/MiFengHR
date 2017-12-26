@@ -1,0 +1,276 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+
+.box{
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 3rem;
+}
+
+.box .user{
+	display: flex;
+	padding: 1rem;
+	align-items:center;
+}
+.box .user .td{
+	margin: 0 1rem;
+}
+.box .user .deadimg{
+	width: 10%;
+	height: auto;
+}
+.box .user .deadimg img{
+	width: 100%;
+	height: auto;
+}
+.box .user .info{
+	width: 30%;
+}
+
+table{
+	border: 1px solid #eaeaea;
+	background: #fff;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 2rem;
+}
+table tr{
+	
+}
+table td{
+	border-right: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
+}
+
+.ts1{
+	margin-bottom: 0;
+}
+.test1{
+	text-align: center;
+}
+.tel{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.7);
+	display: none;
+}
+.tel .ta a{
+	text-decoration: none;
+}
+.tel .ta .re{
+			float: right;
+			margin-right: 2rem;
+			color: #99D3F5;
+		}
+.tel .ta .tap input{
+	margin-left: 2rem;
+	border: 1px solid #99D3F5;
+	border-radius: 0.5rem;
+}
+.tel .ta .bdbtn{
+	width: 20%;
+	border: 1px solid #99D3F5;
+	background: #fff;
+	border-radius: 0.7rem;
+	color: #99D3F5;
+	    text-align: center;
+	    display: block;
+	    margin: 0 auto;
+}
+/*// 注册*/
+.register .tb{
+	padding-top: 2rem;
+}
+.register .taspp{
+	margin: 0;
+
+}
+.register .tap{
+	overflow: hidden;
+}
+.register .lable{
+	width: 20%;
+    display: block;
+    overflow: hidden;
+    float: left;
+    text-align: right;
+}
+.register .tap input{
+	margin-left: 2rem;
+	border: 1px solid #99D3F5;
+	border-radius: 0.5rem;
+	width: 60%;
+	overflow: hidden;
+	float: left;
+}
+
+/*// 图表显示*/
+.main{
+	width: 100%;
+	height: 30rem;
+	display: none;
+	background: #fff;
+}
+/*响应式*/
+@media screen and (max-width : 640px) {
+	.tel .ta{
+		position: absolute;
+		    top: 10%;
+		    left: 10%;
+		    background: #fff;
+		    width: 80%;
+		    height: 80%;
+		    text-align: center;
+		    overflow: hidden;
+	}
+	.tel .ta .taspp{
+		font-size: 1.5rem;
+		font-weight: bold;
+		margin: 15% 0;
+		overflow: hidden;
+		color: #1E88C7;
+		/* margin-top: 15rem; */
+		/* width: 100%; */
+		/* height: 20%; */
+		display: block;
+	}
+	.tel .ta .tap{
+		    margin: 20% 0;
+    color: #99D3F5;
+	}
+	.register .tb .taspp{
+			margin: 0;
+			color: #99D3F5;
+		}
+		.register .tb .tap{
+			margin: 2%;
+			color: #1E88C7;
+		}
+
+}
+@media (min-width : 641px) and (max-width : 767px) {
+	.tel{
+			font-size: 2rem;
+		}
+		.tel .ta{
+			position: absolute;
+			    top: 10%;
+			    left: 10%;
+			    background: #fff;
+			    width: 80%;
+			    height: 80%;
+			    text-align: center;
+			    overflow: hidden;
+		}
+		.tel .ta .taspp{
+			font-size: 3rem;
+			font-weight: bold;
+			margin: 15% 0;
+			overflow: hidden;
+			color: #1E88C7;
+			/* margin-top: 15rem; */
+			/* width: 100%; */
+			/* height: 20%; */
+			display: block;
+		}
+		.tel .ta .tap{
+			    margin: 15% 0;
+	    color: #99D3F5;
+		}
+		.register .tb .taspp{
+			margin: 5%;
+			color: #99D3F5;
+		}
+		.register .tb .tap{
+			margin: 5%;
+			color: #1E88C7;
+		}
+}
+@media (min-width : 768px) and (max-width : 1024px) {
+		.tel{
+			font-size: 2rem;
+		}
+		.tel .ta{
+			position: absolute;
+			    top: 10%;
+			    left: 10%;
+			    background: #fff;
+			    width: 80%;
+			    height: 80%;
+			    text-align: center;
+			    overflow: hidden;
+		}
+		.tel .ta .taspp{
+			font-size: 3rem;
+			font-weight: bold;
+			margin: 10% 0;
+			overflow: hidden;
+			color: #1E88C7;
+			/* margin-top: 15rem; */
+			/* width: 100%; */
+			/* height: 20%; */
+			display: block;
+		}
+		.tel .ta .bdbtn{
+			font-size: 3rem;
+		}
+		.tel .ta .re{
+			font-size: 1rem;
+		}
+		.tel .ta .tap{
+			    margin: 30% 0;
+	    color: #99D3F5;
+		}
+		.register .tb .taspp{
+			margin: 10%;
+			color: #99D3F5;
+		}
+		.register .tb .tap{
+			margin: 5%;
+			color: #1E88C7;
+		}
+
+}
+@media screen and (min-width: 1025px) {
+		.tel .ta{
+			position: absolute;
+			    top: 10%;
+			    left: 10%;
+			    background: #fff;
+			    width: 80%;
+			    height: 80%;
+			    text-align: center;
+			    overflow: hidden;
+		}
+		.tel .ta .taspp{
+			font-size: 1.5rem;
+			font-weight: bold;
+			margin: 8% 0;
+			overflow: hidden;
+			color: #1E88C7;
+			/* margin-top: 15rem; */
+			/* width: 100%; */
+			/* height: 20%; */
+			display: block;
+		}
+		.tel .ta .tap{
+			    margin: 5% 0;
+	    color: #99D3F5;
+		}
+		.register .tb .taspp{
+			margin: 0;
+			color: #99D3F5;
+		}
+		.register .tb .tap{
+			margin: 2%;
+			color: #1E88C7;
+		}
+
+}

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>职位详情</title>
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/all.css"/>
+<!-- <script src="time/mobiscroll.core-2.5.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="time/mobiscroll.core-2.5.2-zh.js" type="text/javascript" charset="utf-8"></script>
+<script src="time/mobiscroll.datetime-2.5.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="time/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript" charset="utf-8"></script>
+<script src="time/mobiscroll.android-ics-2.5.2.js" type="text/javascript" charset="utf-8"></script> 
+<link rel="stylesheet" type="text/css" href="time/mobiscroll.android-ics-2.5.2.css"/>
+<link rel="stylesheet" type="text/css" href="time/mobiscroll.animation-2.5.2.css"/>
+<link rel="stylesheet" type="text/css" href="time/mobiscroll.core-2.5.2.css"/> -->
+  </head>
+  <body>
+    <style type="text/css">
+      .container{ padding-top: 10px; padding-bottom: 50px; }
+      .center2{ border: 1px #EAEAEA solid; margin-bottom: 15px;}
+      .center2 .row{ padding: 1rem; }
+      .zhiwei{ color: #179ef3; font-size: 1.8rem; font-weight: 600;}
+      .qiyename{ font-size: 1.4rem;  line-height: 3rem;}
+      .qiyename a{ color: #666666;}
+      .xinzi{ color: #da0000; font-size: 1.8rem; font-weight: 600;}
+      
+      .alt{ line-height: 2rem;}
+      .quyu{ float: left; background: url(img/dd.png) no-repeat 0rem 0.4rem; background-size: 1rem; padding-left: 1.2rem; font-size: 1.2rem;
+       color: #666; }
+
+      .time{ float: left; background: url(img/xl.png) no-repeat 0rem 0.4rem; background-size: 1rem; padding-left: 1.2rem; font-size:1.2rem;
+       color: #666; margin-left: 10px; }
+      .xueli{ float: left; background: url(img/sj.png) no-repeat 0rem 0.4rem; background-size: 1rem; padding-left: 1.2rem; font-size: 1.2rem;
+       color: #666; margin-left: 10px; } 
+      .yj{  border-radius: 2px; padding: 0.2rem 0; font-weight: 600; background: #179ef3; color: #FFFFFF;}
+      
+      .quyu2{ float: left; background: url(img/nannv.png) no-repeat 0rem 0.4rem; background-size: 1rem; padding-left: 1.2rem; font-size: 1.2rem;
+       color: #666; }
+       
+      .time2{ float: left; background: url(img/nianji.png) no-repeat 0rem 0.4rem;background-size: 1rem; padding-left: 1.2rem; font-size: 1.2rem;
+       color: #666; margin-left: 10px; }
+       
+      .quyu3{ float: left; background: url(img/tiem.png) no-repeat 0rem 0.4rem; background-size: 1rem; padding-left: 1.2rem; font-size: 1.2rem;
+       color: #666; margin-top: 10px;  }
+       
+       .bottom{ position: fixed; left: 0; bottom: 0; text-align: center; background: #ffa328; color: #FFFFFF; width: 100%; line-height: 45px;
+        margin: 0; padding: 0;}
+       .bottom .col-xs-6{ font-weight: 600;}
+        
+      .ok{ position: absolute; width: 80%; left: 10%; background: #fff; top: 50%; overflow: hidden; margin-top: -100px; display: none; 
+      border-radius: 5px; z-index: 1001;}
+      .ok2{ position: absolute; width: 80%; left: 10%; background: #fff; top: 50%; overflow: hidden; margin-top: -100px; display: none; 
+      border-radius: 5px; z-index: 1001;}
+      .ok3{ position: absolute; width: 80%; left: 10%; background: #fff; top: 50%; overflow: hidden; margin-top: -100px; display: none; 
+      border-radius: 5px; z-index: 1001;}
+      .ok4,.ok5{ position: absolute; width: 80%; left: 10%; background: #fff; top: 50%; overflow: hidden; margin-top: -100px; display: none; 
+      border-radius: 5px; z-index: 1001;}
+      .ok4 input,.ok5 input{border: 1px solid #999;width: 90%;display: block;margin: 0 auto;}
+      .ok4 p,.ok5 p{font-size: 12px;color: #fa4c00;margin-top: 10px;}
+      .okmess{ line-height: 30px; text-align: center; border: 1px #EAEAEA solid; padding: 20px 0; }
+      .okb{float: left; width: 50%; background: #49abfe; line-height: 35px; text-align: center;}
+      .okb a{ color: #FFFFFF;}
+      .red{  margin-bottom:15px; color: #fa4c00; font-weight: 600; font-size: 1.6rem;}
+      
+      .bo{ border: 1px #EAEAEA solid; padding:10px; margin-bottom: 10px; color: #666;}
+      .qiyexinxi a{ color: #333;}
+      .qiyeimg{ width: 20%; margin-left: 5%; float: left; overflow: hidden;}
+      .qiyeimg img{width: 100%; border-radius: 50%;}
+      .qiyealt{ float: right; width: 70%; line-height: 30px;}
+      
+      .qr2{width: 100px; margin: 20px auto; background: #49abfe; line-height: 35px; color: #FFFFFF; border-radius: 2px;}
+      
+      .mianshididian{ display: none;}
+      .mianshihover{ color: #179EF3;}
+      .ok3qx,.ok3qr,.ok4qr{ color: #FFFFFF;}
+      .ok2close{ width: 20px; height: 20px; font-size: 20px; float: right;}
+    </style>
+    
+    <div class="heimu"></div>
+    <div class="fabuactive">努力加载中，请稍后....</div>
+    
+    <div class="alltop">
+      <div class="backone2">
+        <a href="javascript:;" class="returna"><span class="glyphicon glyphicon-menu-left"></span><b>返回</b></a>
+      </div>
+      <div class="refresh">
+      <a href="#">
+        <span class="glyphicon glyphicon-refresh"></span><b>刷新</b></a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="center2">
+            <div class="row">
+              <div class="col-xs-8" style="font-size: 1.4rem;">
+                <div class="zhiwei">{{position}}</div>
+                <div class="qiyename"><a href="#">{{company}}</a></div>
+                <div class="alt">
+                  <div class="quyu">{{area}}</div>
+                  <div class="time">{{worktime}}</div>  
+                  <div class="xueli">{{edueational}}</div>
+                  <div class="clearfix"></div>
+                  <div class="quyu2">{{sex}}</div>
+                  <div class="time2">{{agerange}}</div> 
+                  <div class="clearfix"></div>
+                  <div class="quyu3" style="width: 100%;">发布于： {{createtime}}</div>
+                </div>
+              </div>
+              <div class="col-xs-4 text-center">
+                <div class="xinzi">{{wages}}</div>
+                <div>&nbsp;</div>
+                <div class="yj">佣金 &nbsp;{{commission}}元</div>
+              </div>
+            </div>
+      </div>
+      <div class="bo">
+        <div class="red">工作时间</div>
+        <div class="gzsj" style="line-height: 25px;">{{workdaytime}}</div>
+      </div>
+      <div class="bo">
+        <div class="red">福利待遇</div>
+        <div class="fldy" style="line-height: 25px;">{{welfare}}</div>
+      </div>
+      <div class="bo">
+        <div class="red">岗位说明</div>
+        <div class="gwsm" style="line-height: 25px;">{{content}}</div>
+      </div>
+      
+      <div class="qiyexinxi bo" style=" padding:15px 0;">
+        <a href="javascript:;">
+          <div class="qiyeimg"><img src="img/t1.jpg"/></div>
+          <div class="qiyealt">
+            <div class="qiyeming">{{company}}</div>
+            <div class="qiyebiaoqian">{{industry}}</div>
+          </div>
+          <div class="clearfix"></div>
+        </a>
+      </div>
+      
+      <div class="bottom row">
+        <div class="col-xs-12 zqyj">赚取佣金</div>
+      </div>
+      <div class="yongjin" style=" display: none; background: url(img/tm.png); width: 100%; height: 100%; overflow: hidden; position: fixed; left: 0; top: 0;">
+      </div>
+      
+      <div class="yongjina" style=" display: none; background: url(img/yongjin.png) no-repeat; 
+        background-size: 100%; padding: 10% 3%; color: #FFFFFF; width: 70%; height: 200px; top: 0; right: 0; position: fixed;">
+        开通会员后，推荐人才知道和 推广会员就能赚取佣金~<br />
+        <div class="yj2" style="text-align: center; line-height: 25px;">
+          <a :href="fyurl" style="width: 40%; border-radius: 2px; display: block; float: left; margin:10px; padding: 5px 0; color: #FFFFFF; background: #49abfe;">查看返佣规则</a>
+          <a :href="huiyuanurl" style="width: 40%; border-radius: 2px; display: block; float: left; margin:10px; padding: 5px 0; color: #FFFFFF; background: #49abfe;">开通会员</a>
+<!--          <a href="zhuce.html" style="width: 40%; display: block;  float: left; margin:10px; color: #FFFFFF; background: #49abfe;">注册</a>-->
+        </div>
+      </div>
+      
+      <input type="text" name="appDateTime" id="appDateTime" style="width: 1px; height: 1px; opacity: 0;"/>
+      <div class="mianshifs" style="width: 1px; height: 1px; opacity: 0;"></div>
+      <div class="mianshisj" style="width: 1px; height: 1px; opacity: 0;"></div>
+
+<script type="text/javascript">
+  // var currYear = (new Date()).getFullYear();
+  // var opt = {};
+  // opt.date = {
+  //   preset: 'date'
+  // };
+  // opt.datetime = {
+  //   preset: 'datetime'
+  // };
+  // opt.time = {
+  //   preset: 'time'
+  // };
+  // opt.default = {
+  //   theme: 'android-ics light', //皮肤样式
+  //   display: 'modal', //显示方式 
+  //   mode: 'scroller', //日期选择模式
+  //   lang: 'zh',
+  //   startYear: currYear - 10, //开始年份
+  //   endYear: currYear + 10 //结束年份
+  // };   
+
+  // var optDateTime = $.extend(opt['datetime'], opt['default']);
+  // var optTime = $.extend(opt['time'], opt['default']);
+  // $("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);  
+  // $('body').on('click','.yyms',function(){
+  //   $(".heimu").show();
+  //   $(".ok2").show();
+  //   $(".ok2>div").show()
+  // })
+  // $('body').on('click','.sp',function(){
+  //   $(".heimu").hide();
+  //   $(".ok2").hide();
+  //   $(".appid").text($(this).data('id'));
+  //   $(".mianshifs").text("1")
+  //   $("#appDateTime").focus();
+  // })
+
+  // $('body').on('click','.xc',function(){
+  //   $(".mianshifs").text("2");
+  //   $(".ok2").hide();
+  //   $(".ok3").show();
+  // })
+
+  // $('body').on('click','.ok3qr',function(){
+  //   $(".heimu").hide();
+  //   $(".ok3").hide();
+  //   $(".mianshisj").text($(this).data('id'));
+  //   $("#appDateTime").focus();
+  // })
+
+  // $('body').on('click','.ok3qx',function(){
+  //   $(".heimu").hide();
+  //   $(".ok3").hide();
+  // })
+
+  // $(".mianshididianx").click(function(){
+  //   $(this).addClass("mianshihover").siblings().removeClass("mianshihover")
+  // })
+
+  // $("#appDateTime").change(function(){
+  //   var ReservationDate = $("#appDateTime").val();
+  //   var Request = new Object(); 
+  //   Request = GetRequest(); 
+  //   var id; 
+  //   id = Request['id']; 
+  //   var DeliveryType = $(".mianshifs").text();
+  //   var MeetAddrID = $(".mianshihover").text();
+  //   $(".heimu").show();
+  //   $(".ok5").show();
+  //   $(".ok5>div").show();
+  //   $(document).off('click','.ok5qr')
+  //   $(document).on('click','.ok5qr',function(){
+  //     $.ajax({
+  //             type: "POST",
+  //             url: jkurl,
+  //             beforeSend: function(request) {
+  //                 request.setRequestHeader("req", "129");
+  //                 request.setRequestHeader("TokenID", tokenid);
+  //             },
+  //             dataType:"json",
+  //             success: function(result) {
+  //               console.log(result)
+  //               if(result.code==1){
+  //                 if(result.resdata.IsComplete==true){
+  //                   var Request = new Object(); 
+  //             Request = GetRequest(); 
+  //             var ReferenceID = $(".tjrtel").val();
+  //             console.log(ReferenceID)
+  //             var id; 
+  //             id = Request['id']; 
+  //             var js = "{'ReservationDate':'"+ReservationDate+"','RecruitID':'"+id+"','MeetAddrID':'"+MeetAddrID+"','DeliveryType':'"+DeliveryType+"','ReferenceID':'"+ReferenceID+"'}"
+  //             $.ajax({
+  //                   type: "POST",
+  //                   url: jkurl,
+  //                   beforeSend: function(request) {
+  //                       request.setRequestHeader("req", 470);
+  //                       request.setRequestHeader("TokenID", tokenid);
+  //                   },
+  //                   dataType:"json",
+  //                   data:js,
+  //                   success: function(result){
+  //                     if(result.code == 1){
+  //                       $(".ok5").hide();
+  //                       $(".ok5>div").hide();
+  //                   alert("简历投递成功，请等待HR回应");
+  //                       location.reload();
+                    
+  //                     }else{
+  //                       alert(result.errormsg);
+  //                       $(".ok5").hide();
+  //                       $(".ok5>div").hide();
+  //                       $(".ok").hide();
+  //                         $(".heimu").hide();
+  //                     }
+  //                   },
+  //               });
+  //                 }else{
+  //                   $(".ok5").hide();
+  //             $(".okmess").show();
+  //             $(".okok").show();
+  //                   $(".heimu").show();
+  //                   $(".ok").show();
+  //                 }
+  //             }else{
+  //           alert("账户过期，请重新登录");
+  //           window.location.href="denglu.html";
+  //               }
+  //             }
+  //         });
+  //   })
+  // })
+  // $(".ok2close").click(function(){
+  //   $(".heimu").hide();
+  //   $(".ok2").hide();
+  // })
+
+  //           $(function(){
+  // //查看用户权限，HR有发布职位功能
+  // if(RegisterType == '0'){}
+  // if(RegisterType == '1'){ $(".td").hide(); $(".yyms").hide(); $(".zqyj").removeClass("col-xs-4").addClass("col-xs-12")}
+  // if(RegisterType == '2'){ $(".td").hide(); $(".yyms").hide(); $(".zqyj").removeClass("col-xs-4").addClass("col-xs-12")}
+
+
+  //             $(".heimu").show();
+  //             $(".fabuactive").show();
+              
+  //             //获取简历完整
+  //             $(".td").click(function(){
+  //               $(".heimu").show();
+  //               $(".ok4").show();
+  //               $(".okmess").show();
+  //               $(".okok").show();
+  //             })  
+  //             $(".ok4qr").click(function(){
+  //               $.ajax({
+  //                       type: "POST",
+  //                       url: jkurl,
+  //                       beforeSend: function(request) {
+  //                           request.setRequestHeader("req", "129");
+  //                           request.setRequestHeader("TokenID", tokenid);
+  //                       },
+  //                       dataType:"json",
+  //                       success: function(result) {
+  //                         console.log(result)
+  //                         if(result.code==1){
+  //                           if(result.resdata.IsComplete==true){
+  //                             var Request = new Object(); 
+  //                       Request = GetRequest(); 
+  //                       var ReferenceID = $(".tjrtel").val();
+  //                       console.log(ReferenceID)
+  //                       var id; 
+  //                       id = Request['id']; 
+  //                       var js = "{'DeliveryType':'0','RecruitID':'"+id+"','ReferenceID':'"+ReferenceID+"'}";
+  //                       $.ajax({
+  //                             type: "POST",
+  //                             url: jkurl,
+  //                             beforeSend: function(request) {
+  //                                 request.setRequestHeader("req", 470);
+  //                                 request.setRequestHeader("TokenID", tokenid);
+  //                             },
+  //                             dataType:"json",
+  //                             data:js,
+  //                             success: function(result){
+  //                               if(result.code == 1){
+  //                                 $(".ok4").hide();
+  //                             $(".okmess").hide();
+  //                             $(".okok").hide();
+  //                             $(".heimu").show();
+  //                                   $(".ok").show();
+  //                             $(".okmess2").show();
+                              
+  //                               }else{
+  //                                 alert(result.errormsg);
+  //                                 $(".ok4").hide();
+  //                                 $(".ok").hide();
+  //                                   $(".heimu").hide();
+  //                               }
+  //                             },
+  //                         });
+  //                           }else{
+  //                             $(".ok4").hide();
+  //                       $(".okmess").show();
+  //                       $(".okok").show();
+  //                             $(".heimu").show();
+  //                             $(".ok").show();
+  //                           }
+  //                       }else{
+//                     alert("账户过期，请重新登录");
+//                     window.location.href="denglu.html";
+//                         }
+//                       }
+//                   });
+//             })
+            
+//             var Request = new Object(); 
+//             Request = GetRequest(); 
+//             var id; 
+//             id = Request['id']; 
+//             var js = "{'RecruitInfoID':'"+id+"'}";
+//             $.ajax({
+//                     type: "POST",
+//                     url: jkurl,
+//                     beforeSend: function(request) {
+//                         request.setRequestHeader("req", "310");
+//                         request.setRequestHeader("TokenID", tokenid);
+//                     },
+//                     dataType:"json",
+//                     data:js,
+//                     success: function(result) {
+//                       if(result.code == 1){
+//                           $(".zhiwei").text(result.resdata.JobName);
+//                         $(".qiyename").html("<a href='qiye.html?id="+result.resdata['CompanyInfo'].cpcid+"'>"+result.resdata['CompanyInfo'].cpname+"</a>");
+//                         $(".quyu").text(result.resdata.cpcname);
+//                         $(".xueli").text(result.resdata.cpedu);
+//                         $(".xinzi").text(result.resdata.cps);
+//                         $(".time").text(result.resdata.cpyear);
+//                         $(".quyu3").html("发布于："+result.resdata.CreateTime);
+//                         $(".gzsj").html(result.resdata.Remark);
+//                         $(".gwsm").html(result.resdata.Dutys);
+//                         $(".fldy").html(result.resdata.welfare);
+//                         $(".quyu2").html(result.resdata.Sex);
+//                         $(".time2").html(result.resdata.Age+"岁");
+//                         $(".yj").html("佣金"+result.resdata.Commission+"元");
+//                         if(localStorage.getItem('RegisterType') == 0){$(".yj").hide()}
+//                         $(".qiyeming").html(result.resdata['CompanyInfo'].cpname);
+//                         $(".qiyebiaoqian").html(result.resdata['CompanyInfo'].IndustryTag);
+// //                        $(".qiyeimg").html(result.resdata['CompanyInfo'].cpname)
+//                   $(".mianshididianx").text(result.resdata.MeetAddr)
+//                         $(".heimu").hide();
+//                   $(".fabuactive").hide();
+//                       }else{
+//                         alert(result.errormsg);
+//                         $(".heimu").hide();
+//                   $(".fabuactive").hide();
+//                       }
+                      
+//                     }
+//                 });
+//           })
+
+
+//           $(".zqyj").click(function(){
+//             $(".yongjin").show();
+//             $(".yongjina").show();
+//           })
+          
+//           $(".yongjin").click(function(){
+//             $(".yongjin").hide();
+//             $(".yongjina").hide();
+//           })
+          
+//           $(".qx").click(function(){
+//             $(".ok").hide();
+//             $(".heimu").hide();
+//           })
+          
+//           $(".qr2").click(function(){
+//             $(".ok").hide();
+//             $(".heimu").hide();
+//           })
+
+  </script>
+  </div>
+    <script src="../lib/soha.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/vue.min.js"></script>
+    <script type="text/javascript" src="../lib/common.js"></script>
+    <!-- <script type="text/javascript" src="js/parameter.js"></script> -->
+    <script type="text/javascript" src="js/xq_ajax.js"></script>
+  
+
+    <script src="js/peizhi.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

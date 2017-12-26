@@ -1,0 +1,24 @@
+.heimu{cursor: pointer; display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: url(../img/tm.png); z-index: 1000;}
+.fabuactive{ display: none;  position: fixed; left: 10%; top: 40%; width: 80%; padding: 10% 0; background: #FFFFFF; z-index: 1001;
+text-align: center;}
+.fabu{ width: 100%; padding:10px 0; font-size: 1.7rem; background: #ffa328; border: none; color: #FFFFFF; font-weight: 600;}
+a{ text-decoration: none;}
+.form-control{ background: none !important; border: none; background: none; border: none;
+box-shadow: #FFFFFF 0 0 0;} 
+.form-control:focus {border-color: none; outline: 0;-webkit-box-shadow: inset 0px 0px 5px #FFFFFF}	
+select{ color: #666 !important;  appearance:none;-moz-appearance:none;-webkit-appearance:none; direction: rtl;}
+select option {direction: ltr; }
+.fabu{ width: 100%; padding:10px 0; margin-top: 10px;  font-size: 1.7rem; background: #ffa328; border: none; text-align: center; border-radius: 3px;}
+
+.form-control::-moz-placeholder { color: #E3E3E3; }
+.form-control::-webkit-input-placeholder { color:#E3E3E3; }
+.form-control:-ms-input-placeholder { color:#E3E3E3; }
+
+
+.alltop{ margin: 0; padding: 0; background: #ffa328; width: 100%; height: 45px; line-height: 45px; color: #FFFFFF;}
+.backone{ padding-left: 15px; float: left;}
+.backone2{ padding-left: 15px; float: left;}
+.backone2 a{ color: #FFFFFF;}
+.glyphicon{ top: 2px;}
+.refresh{ float: right; padding-right: 15px;}
+.refresh>a{color:#fff;}

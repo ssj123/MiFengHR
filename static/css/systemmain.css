@@ -1,0 +1,223 @@
+
+a{
+	text-decoration: none;
+}
+#search{
+	height: 100%;
+	width: 30%;
+	border: 1px solid purple;
+	display: block;
+	text-align: center;
+	/*list-style: none;*/
+	text-decoration: none;
+	border-radius: 5px;
+}
+#search:hover{
+	color: orange;
+}
+.box{
+	display: flex;
+}
+#details{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: #cdcdcd;
+	display: none;
+}
+#mt-20{
+	position: relative;
+    top: 0;
+    left: 0;
+}
+#table{
+	background: #fff;
+}
+#ranking2 ,#ranking3{
+	display: none;
+}
+.rankinga{
+	text-decoration: none;
+	margin-right: 30px;
+}
+.rankinga :hover{
+	color: orange;
+}
+
+/*检索*/
+.hid{
+	overflow: hidden;
+}
+.sele{
+	width: 10%;
+	margin-left: 20px;
+	margin-top: 10px;
+	float: left;
+}
+.sele .select{
+	width: 50%;
+}
+.search{
+	margin: 10px 0;
+	float: right;
+}
+.search i{
+	font-size: 20px;
+	color: #cdcdcd;
+	margin-left: 5px;
+}
+.search i:hover{
+	color: rgb(90,152,222);
+}
+.searchno{
+	margin: 50px 0;
+	text-align: center;
+	color: red;
+	font-size: 18px;
+	font-weight: bold;
+}
+/*分页*/
+.pagessto{
+	    float: right;
+    margin-top: 23px;
+    margin: 0 10px;
+}
+
+/*级别表*/
+.dialog{
+	    min-width: 260px;
+	    webkit-overflow-scrolling: touch;
+    top: 150px;
+    left: -500px;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    -webkit-background-clip: content;
+    box-shadow: 1px 1px 50px rgba(0,0,0,.3);
+    border-radius: 2px;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+        position: fixed;
+    _position: absolute;
+    pointer-events: auto;
+}
+.dialog_title{
+	padding: 0 80px 0 20px;
+	    height: 42px;
+	    line-height: 42px;
+	    border-bottom: 1px solid #eee;
+	    font-size: 14px;
+	    color: #333;
+	    overflow: hidden;
+	    background-color: #F8F8F8;
+	    border-radius: 2px 2px 0 0;
+}
+.dialog_content{
+	position: relative;
+	padding: 20px;
+	line-height: 24px;
+	word-break: break-all;
+	overflow: hidden;
+	font-size: 14px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.dialog_setwin{
+	position: absolute;
+	    right: 15px;
+	    top: 15px;
+	    font-size: 0;
+	    line-height: initial;
+}
+.dialog_close1{
+	background-position: 0 -40px;
+    cursor: pointer;
+        display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+.dialog_btn{
+	text-align: right;
+    padding: 0 10px 12px;
+    pointer-events: auto;
+}
+.btn0{
+	border-color: #4898d5;
+    background-color: #2e8ded;
+    color: #fff;
+    height: 28px;
+    line-height: 28px;
+    margin: 0 6px;
+    padding: 0 15px;
+    border: 1px solid #dedede;
+    background-color: #f1f1f1;
+    color: #333;
+    border-radius: 2px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn1{
+	height: 28px;
+	    line-height: 28px;
+	    margin: 0 6px;
+	    padding: 0 15px;
+	    border: 1px solid #dedede;
+	    background-color: #f1f1f1;
+	    color: #333;
+	    border-radius: 2px;
+	    font-weight: 400;
+	    cursor: pointer;
+	    text-decoration: none;
+}
+
+/*// 图表*/
+#main{
+	width: 80%;
+	height: 400px;
+	margin: 0 auto;
+}
+#main1{
+	width: 80%;
+	height: 400px;
+	margin: 0 auto;
+}
+.note{
+	width: 100%;
+	text-align: center;
+}
+.note a{
+	text-decoration: none;
+	margin: 0 10px;
+}
+.note a:hover{
+	color: orange;
+}
+
+/*// 团队检索日期*/
+#tisele{
+	    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+#tisele .searchdate1 {
+	    position: absolute;
+    top: 0;
+    right: 0;
+}
+#tisele .searchdate2 {
+	    position: absolute;
+    top: 50px;
+    right: 0;
+}
+#tisele .note{
+	    position: absolute;
+    top: 90px;
+}

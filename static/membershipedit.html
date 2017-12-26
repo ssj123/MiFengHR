@@ -1,0 +1,191 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="Bookmark" href="favicon.ico" >
+<link rel="Shortcut Icon" href="favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script><![endif]-->
+<!--/meta 作为公共模版分离出去-->
+
+<title>转账方式设置</title>
+<link href="lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<a href="article-list.html" style="position: fixed; top: 5%;right: 5%;">x</a>
+<div class="page-container" id="editpage">
+	<form class="form form-horizontal" id="form-article-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">转账金额：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" id="amount" value="" placeholder="" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">转账方式：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<select class="select select-box size-MINI" size="1" name="demo1" id="way">
+				    <option value="0" selected>默认支付宝</option>
+				    <option value="1">微信</option>
+				    
+				  </select>
+			</div>
+		</div>
+		
+		
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">账户名：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" id="accountname" class="input-text Wdate">
+			</div>
+		</div>
+		
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2" style="text-align: center;">二维码：</label>
+			
+			
+			<div class="formControls col-xs-8 col-sm-9">
+				<img src="" id="qrcodeurl">
+			</div>
+			
+		</div>
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">更换二维码：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div class="formControls col-xs-8 col-sm-9" style="display: flex; ">
+				<input type="file" class="input-text" value="" placeholder="" id="inputImage" name="">
+			</div>
+			</div>
+		</div>
+
+		<!-- <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">推荐人手机号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="fphone" name="">
+			</div>
+		</div>
+         -->
+		
+				</div>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="edituser()" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i>修改信息</button>
+				<!-- <button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button> -->
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script> 
+ 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.page.js"></script> 
+
+<!--/_footer /作为公共模版分离出去-->
+
+<!-- 自己的js -->
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+
+<!--请在下方写此页面业务相关的脚本-->
+<!-- <script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script>  -->
+<script type="text/javascript">
+
+var id = GetQueryString("id");
+var qrcodeurl ;
+
+	postJSON('/api/gettransfer', {
+	    
+	}, function(result) {
+	    accountid = result.data.id ;
+	    if ( result.data.way == 0 ) {
+	    	document.getElementById("way").options[0].selected=true;
+	    }else if ( result.data.way == 1 ) {
+	    	document.getElementById("way").options[1].selected=true;
+	    }
+
+	    $("#amount").val(result.data.amount);
+	    $("#accountname").val(result.data.accountname);
+	    $("#qrcodeurl").attr("src",result.data.qrcodeurl) ;
+	    qrcodeurl = result.data.qrcodeurl ;
+
+	}, function(result) {
+	    console.log("失败", result);
+	});
+
+function edituser() {
+
+	var amount = $("#amount").val();
+	var accountname = $("#accountname").val();
+	var way = $('#way').val();
+
+	// 更换二维码
+	var fd = new FormData();
+	var myDate = new Date();
+	var headImgurl ;
+	var date1 = _dateFormat(myDate, 'yyyyMMddHmmssS');
+	fd.append("time", '' + date1);
+	fd.append("file", $("#inputImage").get(0).files[0]);
+	
+	postFormData('/api/uploadimg', fd, function(result) {
+	        qrcodeurl = result.msg;
+
+	        $('.touxiangimg').src = qrcodeurl;
+
+
+	  }, function(result) {
+
+	        });
+
+
+	// 更新数据
+	        postJSON('/api/updatetranfer', { 
+	                            "id": parseInt(id), 
+	                            "qrcodeurl": qrcodeurl ,
+	                            "amount": amount ,
+	                            "accountname": accountname ,
+	                            "way": parseInt(way) ,
+	                            
+	    }, function(result) {
+	        	alert("修改成功！")
+	        window.location.href = "membership.html" ;
+
+	        }, function(result) {
+
+	        });
+
+}
+
+function layer_close() {
+	window.location.href = "membership.html" ;
+}
+
+</script>
+</body>
+</html>

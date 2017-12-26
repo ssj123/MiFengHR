@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>我的资产</title>
+        <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/all.css"/>
+    </head>
+    <body>
+        <style type="text/css">
+            .top{ line-height: 45px;}
+            .j{ border-bottom: 1px #ccc solid; padding: 10px 0;}
+            .t{ border-bottom: 1px #ccc solid;}
+            .q{ line-height: 60px;}
+            .col-xs-9,.col-xs-7{ line-height: 30px;}
+            
+            .col-xs-3{ line-height: 60px;}
+            .b{ border-right: 1px #ccc solid;}
+            .t2,.t3{ display: none;}
+            .act{ color: #4eb2f7;}
+            .col-xs-2 a{ color: #FFFFFF;}
+        </style>
+        <div class="alltop">
+            <div class="backone2">
+                <a href="javascript:;" class="returna"><span class="glyphicon glyphicon-menu-left"></span><b>返回</b></a>
+            </div>
+            <div class="refresh">
+                <a href="#">
+                <span class="glyphicon glyphicon-refresh"></span><b>刷新</b></a>
+            </div>
+        </div>  
+        <div class="container">
+            <div class="row top">
+                <div class="col-xs-7" style="line-height: 45px;">累计金额：80元</div>
+                <div class="col-xs-2"><button class="btn btn-sm tixian"  style="background: #49abfe;"><a href="tixian.html">提现</a></button></div>
+                <div class="col-xs-2"><button class="btn btn-sm chongzhi" style="background: #3eb747;"><a href="chongzhigeren.html">充值</a></button></div>
+            </div>
+            
+            <div class="row q">
+                <div class="col-xs-4 text-center">
+                    <div class="name1 act">提现账单</div>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <div class="name2">充值记录</div>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <div class="name3">消费记录</div>
+                </div>
+            </div>
+            <div class="t1">
+                <div class="row t">
+                    <div class="col-xs-9">
+                        <div class="where">微信充值</div>
+                        <div class="how">2017.12.12</div>
+                    </div>
+                    <div class="col-xs-3">100元</div>
+                </div>
+                <div class="row t">
+                    <div class="col-xs-9">
+                        <div class="where">微信充值</div>
+                        <div class="how">2017.12.12</div>
+                    </div>
+                    <div class="col-xs-3">100元</div>
+                </div>
+                <div class="row t">
+                    <div class="col-xs-9">
+                        <div class="where">微信充值</div>
+                        <div class="how">2017.12.12</div>
+                    </div>
+                    <div class="col-xs-3">100元</div>
+                </div>  
+            </div>
+            <div class="t2">
+                <div class="row t">
+                    <div class="col-xs-7">
+                        <div class="where">微信充值</div>
+                        <div class="how">2017.12.12</div>
+                    </div>
+                    <div class="col-xs-3">100元</div>
+                    <div class="col-xs-2" style=" padding: 5px; background: #5CB85C; color: #FFFFFF; border-radius: 2px; margin-top: 15px; text-align: center; width: 14%;">退款</div>
+                </div>
+                <div class="row t">
+                    <div class="col-xs-7">
+                        <div class="where">微信充值</div>
+                        <div class="how">2017.12.12</div>
+                    </div>
+                    <div class="col-xs-3">100元</div>
+                    <div class="col-xs-2" style=" padding: 5px; background: #5CB85C; color: #FFFFFF; border-radius: 2px; margin-top: 15px; text-align: center; width: 14%;">退款</div>
+                </div>
+                <div class="row t">
+                    <div class="col-xs-7">
+                        <div class="where">微信充值</div>
+                        <div class="how">2017.12.12</div>
+                    </div>
+                    <div class="col-xs-3">100元</div>
+                    <div class="col-xs-2" style=" padding: 5px; background: #5CB85C; color: #FFFFFF; border-radius: 2px; margin-top: 15px; text-align: center; width: 14%;">退款</div>
+                </div>
+            </div>
+            <div class="t3">
+                <div class="row t">
+                    <div class="col-xs-9">
+                        <div class="where">微信充值</div>
+                        <div class="how">2017.12.12</div>
+                    </div>
+                    <div class="col-xs-3">100元</div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function(){
+                    if(Level == "兼职猎头"){
+                        $(".tixian").html("<a class='bunengtixian'>提现</a>")
+                    }else{
+                        $(".tixian").html("<a href='tixian.html'>提现</a>")
+                    }
+                })
+                
+                $('body').on('click','.bunengtixian',function(){
+                    alert("您尚未签约，请先到‘我的团队’签约");
+                })
+                
+                $(".name1").click(function(){
+                    $(this).addClass("act");
+                    $(".name2").removeClass("act");
+                    $(".name3").removeClass("act");
+                    $(".t1").show();
+                    $(".t2").hide();
+                    $(".t3").hide();
+                })
+                $(".name2").click(function(){
+                    $(this).addClass("act");
+                    $(".name1").removeClass("act");
+                    $(".name3").removeClass("act");
+                    $(".t2").show();
+                    $(".t1").hide();
+                    $(".t3").hide();
+                })
+                $(".name3").click(function(){
+                    $(this).addClass("act");
+                    $(".name2").removeClass("act");
+                    $(".name1").removeClass("act");
+                    $(".t3").show();
+                    $(".t2").hide();
+                    $(".t1").hide();
+                })
+            </script>
+        </div>
+        <script src="js/peizhi.js" type="text/javascript" charset="utf-8"></script>
+    </body>
+</html>

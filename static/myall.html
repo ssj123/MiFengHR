@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>简历详情</title>
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+</head>
+
+<body>
+    <style type="text/css">
+    .container {}
+
+    .tx {
+        width: 30%;
+        margin: 10px auto;
+    }
+
+    .tx img {
+        width: 100%;
+        display: block;
+        border-radius: 50%;
+        border: 1px #ccc sdashed;
+    }
+
+    .add {
+        line-height: 45px;
+        background: #FFA328;
+        color: #FFFFFF;
+        font-size: 1.8rem;
+        text-align: center;
+        margin: 0 -15px;
+    }
+
+    .add a {
+        color: #FFFFFF;
+    }
+
+    .row {
+        line-height: 30px;
+    }
+
+    .z {
+        padding: 15px 0;
+        border-top: 1px #EAEAEA solid;
+    }
+
+    .z .col-xs-2 {
+        padding: 0;
+    }
+
+    .z .col-xs-2 a {
+        background: #4cae4c;
+        padding: 4px 6px;
+        border-radius: 2px;
+        color: #FFFFFF !important;
+    }
+
+    .fixa {
+        background: #4cae4c;
+        padding: 4px 6px;
+        border-radius: 2px;
+        color: #FFFFFF !important;
+    }
+
+    .deletegz,
+    .deletejy,
+    .deletenl {
+        background: #d9534f !important;
+        padding: 4px 6px;
+        border-radius: 2px;
+        color: #FFFFFF !important;
+    }
+
+    .col-xs-8 {
+        color: #999;
+    }
+
+    .col-xs-10,
+    .hongtiao {
+        border-left: 5px #DA0000 solid;
+        padding-left: 10px;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #000000;
+    }
+
+    .bottom {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        text-align: center;
+        background: #ffa328;
+        color: #FFFFFF;
+        width: 100%;
+        line-height: 45px;
+        margin: 0;
+        padding: 0;
+        display: none;
+    }
+     .bottom .col-xs-6 {
+        font-weight: 600;
+    }
+
+    .ok {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        background: #fff;
+        top: 50%;
+        overflow: hidden;
+        margin-top: -100px;
+        display: none;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+
+    .ok2 {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        background: #fff;
+        top: 50%;
+        overflow: hidden;
+        margin-top: -100px;
+        display: none;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+
+    .ok3 {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        background: #fff;
+        top: 50%;
+        overflow: hidden;
+        margin-top: -100px;
+        display: none;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+
+    .ok4,
+    .ok5 {
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        background: #fff;
+        top: 50%;
+        overflow: hidden;
+        margin-top: -100px;
+        display: none;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+
+    .ok4 input,
+    .ok5 input {
+        border: 1px solid #999;
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .ok4 p,
+    .ok5 p {
+        font-size: 12px;
+        color: #fa4c00;
+        margin-top: 10px;
+    }
+
+    .okmess {
+        line-height: 30px;
+        text-align: center;
+        border: 1px #EAEAEA solid;
+        padding: 20px 0;
+    }
+
+    .okb {
+        float: left;
+        width: 50%;
+        background: #49abfe;
+        line-height: 35px;
+        text-align: center;
+    }
+
+    .okb a {
+        color: #FFFFFF;
+    }
+
+    .red {
+        margin-bottom: 15px;
+        color: #fa4c00;
+        font-weight: 600;
+        font-size: 1.6rem;
+    }
+
+    .bo {
+        border: 1px #EAEAEA solid;
+        padding: 10px;
+        margin-bottom: 10px;
+        color: #666;
+    }
+
+    .qiyexinxi a {
+        color: #333;
+    }
+
+    .qiyeimg {
+        width: 20%;
+        margin-left: 5%;
+        float: left;
+        overflow: hidden;
+    }
+
+    .qiyeimg img {
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    .qiyealt {
+        float: right;
+        width: 70%;
+        line-height: 30px;
+    }
+
+    .qr2 {
+        width: 100px;
+        margin: 20px auto;
+        background: #49abfe;
+        line-height: 35px;
+        color: #FFFFFF;
+        border-radius: 2px;
+    }
+
+    .mianshididian {
+        display: none;
+    }
+
+    .mianshihover {
+        color: #179EF3;
+    }
+
+    .ok3qx,
+    .ok3qr,
+    .ok4qr {
+        color: #FFFFFF;
+    }
+
+    .ok2close {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        float: right;
+    }
+    .wsxz{
+        margin:  1rem 0;
+
+    }
+    </style>
+    <div class="heimu"></div>
+    <div class="fabuactive">努力加载中，请稍后....</div>
+    <div class="alltop">
+        <div class="backone2">
+            <a href="javascript:;" class="returna"><span class="glyphicon glyphicon-menu-left"></span><b>返回</b></a>
+        </div>
+        <div class="refresh">
+        <a href="#">
+            <span class="glyphicon glyphicon-refresh"></span><b>刷新</b></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="tx">
+            <img src="img/t1.jpg" class="imgtx" />
+        </div>
+        <div class="row z">
+            <div class="col-xs-10">{{resumename}}</div>
+            <!-- <div class="col-xs-2"><a href="myjiben.html">编辑</a></div> -->
+        </div>
+        <div class="row z">
+            <div class="col-xs-10">基本信息</div>
+            <!-- <div class="col-xs-2"><a :href="jibenurl">编辑</a></div> -->
+        </div>
+        <div class="row name">
+            <div class="col-xs-12 xingming">姓名: {{username}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-1 sex">性别： {{sex}}</div>
+            <div class="col-xs-2 age">年龄： {{age}}</div>
+            <div class="col-xs-3 nianxian">工作年限： {{workyears}}</div>
+            <div class="col-xs-6 diqu">当前城市： {{city}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">当前职位</div>
+            <div class="col-xs-8 zhiwei">{{position}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">当前行业</div>
+            <div class="col-xs-8 hangye">{{industry}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">电话</div>
+            <div class="col-xs-8 dianhua">{{phone}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">当前薪资</div>
+            <div class="col-xs-8 xinzi">{{salary}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">在职状态</div>
+            <div class="col-xs-8 zaizhi">{{positionstate}}</div>
+        </div>
+        <div class="row z">
+            <div class="col-xs-10">职业意向</div>
+            <!-- <div class="col-xs-2"><a :href="zhiweiyixiangurl">编辑</a></div> -->
+        </div>
+        <div class="row">
+            <div class="col-xs-3">期望职位</div>
+            <div class="col-xs-8 qiwangzhiwei">{{hopeposition}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">期望行业</div>
+            <div class="col-xs-8 qiwanghangye">{{hopeindustry}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">期望城市</div>
+            <div class="col-xs-8 qiwangcity">{{hopecity}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">期望薪资</div>
+            <div class="col-xs-8 qiwangxinzi">{{hopesalary}}</div>
+        </div>
+        <div class="row z">
+            <div class="col-xs-10">工作经历</div>
+            <!-- <div class="col-xs-2"><a :href="addgongzuourl">编辑</a></div> -->
+        </div>
+        <div class="row">
+            <div class="col-xs-3">产品经理</div>
+            <div class="col-xs-8 qiwangzhiwei">{{positionname}}/{{companyname}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">公司行业</div>
+            <div class="col-xs-8 qiwangxinzi">{{companyindustry}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">时间</div>
+            <div class="col-xs-8 qiwanghangye">{{workstarttime}}-{{workendtime}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">业绩描述</div>
+            <div class="col-xs-8 qiwangcity">{{performance}}</div>
+        </div>
+        
+         
+        <div class="row z">
+            <div class="col-xs-10">教育经历</div>
+            <!-- <div class="col-xs-2"><a :href="addjiaoyuurl">编辑</a></div> -->
+        </div>
+        <div class="row">
+            <div class="col-xs-3">学校</div>
+            <div class="col-xs-8 qiwangzhiwei">{{school}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">专业</div>
+            <div class="col-xs-8 qiwanghangye">{{majors}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">在校时间</div>
+            <div class="col-xs-8 qiwangcity">{{studystarttime}}-{{studyendtime}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">校园经历</div>
+            <div class="col-xs-8 qiwanghangye">{{schoolexperience}}</div>
+        </div>
+        
+        <div class="row z">
+            <div class="col-xs-10">能力信息</div>
+            <!-- <div class="col-xs-2"><a :href="addnengliurl">编辑</a></div> -->
+        </div>
+        <div class="row">
+            <div class="col-xs-3">能力名称</div>
+            <div class="col-xs-8 qiwangzhiwei">{{abilityname}}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">能力介绍</div>
+            <div class="col-xs-8 qiwanghangye">{{abiltycontent}}</div>
+        </div>
+        
+        <div class="gzjl"></div>
+        <div class="jyjl"></div>
+        <div class="nljl"></div>
+        <!-- <div class="add"><a href="addgongzuo.html">添加新的工作经历</a></div>
+			<div class="add"><a href="addjiaoyu.html">添加新的教育经历</a></div>
+			<div class="add"><a href="addnengli.html">添加能力信息</a></div> -->
+       
+
+    </div>
+    <script type="text/javascript" src="../lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/vue.min.js"></script>
+    <script type="text/javascript" src="../lib/common.js"></script>
+    <script src="../lib/soha.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/myall_ajax.js"></script>
+    <!-- <script type="text/javascript">
+			$(function(){
+				if(PortraitUrl && PortraitUrl != picurl+"null"){$(".imgtx").attr("src",PortraitUrl)}
+
+				$(".heimu").show();
+				$(".fabuactive").show();
+				$.ajax({
+	            type: "POST",
+	            url: jkurl,
+	            beforeSend: function(request) {
+	                request.setRequestHeader("req", "453");
+	                request.setRequestHeader("TokenID", tokenid);
+	            },
+	            dataType:"json",
+	            success: function(result) {
+	            	if(result.code == 1){
+//	            		if(!result.resdata.CVTitle){window.location.href="myjiben.html"}
+	               		$(".xingming").html(result.resdata.CVTitle);
+						$(".sex").text(result.resdata.Sex);
+						$(".age").text(result.resdata.Age+"岁");
+						$(".nianxian").text("工作"+result.resdata.WorkExperience+"年");
+						$(".diqu").html(result.resdata.City);
+						$(".xinzi").html(result.resdata.expectSalarPay);
+						$(".hangye").html(result.resdata.CurrentIndustry);
+						$(".zhiwei").html(result.resdata.CurrentJob);
+						$(".zaizhi").html(result.resdata.Status);
+						$(".dianhua").html(result.resdata.Tel);
+						$(".qiwangzhiwei").html(result.resdata.expectJob);
+						$(".qiwanghangye").html(result.resdata.expectIndustry);
+						$(".qiwangcity").html(result.resdata.expectCity);
+						$(".qiwangxinzi").html(result.resdata.expectSalarPay);
+	
+						if(result.resdata.WorkHistoryList != null){
+							for( var i = 0; i<result.resdata['WorkHistoryList'].length; i++){
+								var a = "<div class='row z'><div class='col-xs-8 hongtiao'>工作经历</div><div class='col-xs-2'><a class='fixa' href='fixgongzuo.html?id="+result.resdata['WorkHistoryList'][i].ID+"'>编辑</a></div><div class='col-xs-2'><a class='deletegz' data-id='"+result.resdata['WorkHistoryList'][i].ID+"'>删除</a></div></div>"+
+										"<div class='row'><div class='col-xs-12'>"+result.resdata['WorkHistoryList'][i].Occupation+"/"+result.resdata['WorkHistoryList'][i].CompanyName+"</div>"+
+										"<div class='col-xs-12'>"+result.resdata['WorkHistoryList'][i].StartDate+"-"+result.resdata['WorkHistoryList'][i].EndDate+"</div><div class='col-xs-12'>"+result.resdata['WorkHistoryList'][i].Duty+"</div>"+
+										"</div>"
+								$(".gzjl").append(a);				
+							}
+						}
+						if(result.resdata.EduHistoryList != null){
+						for( var i = 0; i<result.resdata['EduHistoryList'].length; i++){
+							var a = "<div class='row z'><div class='col-xs-8 hongtiao'>教育经历</div><div class='col-xs-2'><a class='fixa' href='fixjiaoyu.html?id="+result.resdata['EduHistoryList'][i].ID+"'>编辑</a></div><div class='col-xs-2'><a class='deletejy' data-id='"+result.resdata['EduHistoryList'][i].ID+"'>删除</a></div></div>"+
+									"<div class='row'><div class='col-xs-12'>"+result.resdata['EduHistoryList'][i].Profession+"/"+result.resdata['EduHistoryList'][i].SchoolName+"</div>"+
+									"<div class='col-xs-12'>"+result.resdata['EduHistoryList'][i].StartDate+"-"+result.resdata['EduHistoryList'][i].EndDate+"</div><div class='col-xs-12'>"+result.resdata['EduHistoryList'][i].Edu+"</div>"+
+									"</div>"
+							$(".jyjl").append(a);				
+						}
+						}
+						if(result.resdata.AbilityList != null){
+						for( var i = 0; i<result.resdata['AbilityList'].length; i++){
+							var a = "<div class='row z'><div class='col-xs-8 hongtiao'>能力描述</div><div class='col-xs-2'><a class='fixa' href='fixnengli.html?id="+result.resdata['AbilityList'][i].ID+"'>编辑</a></div><div class='col-xs-2'><a class='deletenl' data-id='"+result.resdata['AbilityList'][i].ID+"'>删除</a></div></div>"+
+									"<div class='row'><div class='col-xs-12'>"+result.resdata['AbilityList'][i].Title+"</div>"+
+									"<div class='col-xs-12'>"+result.resdata['AbilityList'][i].Explain+"</div>"+
+									"</div>"
+							$(".nljl").append(a);				
+						}
+						}
+						$(".heimu").hide();
+						$(".fabuactive").hide();
+	            	}else{
+	            		alert(result.errormsg);
+	            		$(".heimu").hide();
+						$(".fabuactive").hide();
+	            	}
+	            }
+	        });
+			})
+			
+			$('body').on('click','.deletegz',function(){
+				var x = $(this).data("id");
+				var js = "{'WorkHistoryID':'"+x+"'}"
+				$.ajax({
+			        type: "POST",
+			        url: jkurl,
+			        beforeSend: function(request) {request.setRequestHeader("req", "432");request.setRequestHeader("TokenID", tokenid);},
+			        dataType:"json",
+			        data:js,
+			        success: function(result) {
+			        	if(result.code == 1){
+			        		alert("删除成功！")
+			        		location.reload();
+                       }else{
+                        	alert(result.errormsg);
+                        }
+					}
+			    });
+			})
+			$('body').on('click','.deletejy',function(){
+				var x = $(this).data("id");
+				var js = "{'EducationHistoryID':'"+x+"'}"
+				$.ajax({
+			        type: "POST",
+			        url: jkurl,
+			        beforeSend: function(request) {request.setRequestHeader("req", "442");request.setRequestHeader("TokenID", tokenid);},
+			        dataType:"json",
+			        data:js,
+			        success: function(result) {
+			        	if(result.code == 1){
+			        		alert("删除成功！")
+			        		location.reload();
+                       }else{
+                        	alert(result.errormsg);
+                        }
+					}
+			    });
+			})
+			$('body').on('click','.deletenl',function(){
+				var x = $(this).data("id");
+				var js = "{'AbilityID':'"+x+"'}"
+				$.ajax({
+			        type: "POST",
+			        url: jkurl,
+			        beforeSend: function(request) {request.setRequestHeader("req", "452");request.setRequestHeader("TokenID", tokenid);},
+			        dataType:"json",
+			        data:js,
+			        success: function(result) {
+			        	if(result.code == 1){
+			        		alert("删除成功！")
+			        		location.reload();
+                       }else{
+                        	alert(result.errormsg);
+                        }
+					}
+			    });
+			})
+		</script> -->
+    <script src="js/peizhi.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

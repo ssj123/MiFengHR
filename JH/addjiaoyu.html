@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>添加教育经历</title>
+    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+      <link rel="stylesheet" type="text/css" href="css/all.css"/>
+      <script src="js/guding.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <style type="text/css">
+      .row{ line-height: 40px;}
+      .col-xs-7 input{ border: none; padding-right: 0;}
+    </style>
+    
+    <div class="heimu"></div>
+    <div class="fabuactive">努力保存中，请稍后....</div>
+    <div class="alltop">
+      <div class="backone">
+        <a  href="javascript:;" class="returna">
+          <span class="glyphicon glyphicon-menu-left"></span><b>返回</b>
+        </a>
+      </div>
+      <div class="refresh">
+      <a href="#">
+        <span class="glyphicon glyphicon-refresh"></span><b>刷新</b></a>
+      </div>
+    </div>    
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-5">学校</div>
+        <div class="col-xs-7"><input type="text" class="form-control text-right xuexiao school" value="" placeholder="北京大学" ></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5">专业</div>
+        <div class="col-xs-7"><input type="text" class="form-control text-right zhuanye majors" value="" placeholder="专业" ></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5">学历</div>
+        <div class="col-xs-7"><input type="text" class="form-control text-right zhuanye studyeducational" value="" placeholder="学历" ></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5">时间段</div>
+        <div class="col-xs-7">
+          <input type="text" class="form-control text-right kaishitime studystarttime" value="" placeholder="开始时间：例2016.9" >
+          <input type="text" class="form-control text-right jieshutime studyendtime" value="" placeholder="结束时间：例2017.9"  >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">在校经历</div>
+      </div>
+      <div class="row" style="margin: 0px;">
+        <textarea  class="form-control schoolexperience" rows="5" placeholder="在校获得什么荣誉（800字以内）" ></textarea>
+      </div>
+      <div class="btn fabu" @click="updateyourresume">确认保存</div>
+    </div>
+    
+        <script src="js/peizhi.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <script type="text/javascript" src="../lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/vue.min.js"></script>
+    <script type="text/javascript" src="../lib/common.js"></script>
+    <script src="../lib/soha.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/addjiaoyu_ajax.js"></script>
+
+
+
+  </body>
+</html>

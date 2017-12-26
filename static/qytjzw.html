@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>发布职位</title>
+		<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+<!-- 
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+	    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+	    <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css">
+	    <link rel="stylesheet" type="text/css" href="css/SG_area_select.css">
+	  
+	</head>
+	<body>
+		<style type="text/css">
+			body{ overflow: auto !important;}
+			.container{ padding-bottom: 30px;}
+			.top{ border-bottom: 1px #ccc solid;  border-top: 1px #ccc solid; line-height: 45px;}
+			.t{ font-size: 1.3rem; line-height: 25px; margin-top: 5px;}
+			.l{ color: #00b7ee;}
+			.m{ line-height: 40px;}
+			.col-xs-6 a{ color: #000000;}
+			.col-xs-3{ text-align: right;}
+			.col-xs-9{ padding-top: 5px; margin-bottom: 5px;}
+			.col-xs-2{ margin-left: 2.8%; font-size: 1.3rem; margin-bottom: 15px; text-align: center;}
+			.btn-default{ margin-bottom: 10px; margin-right: 10px;}
+			.title{ font-size: 1.6rem; line-height: 3rem;}		
+			.bar{line-height: 3rem; height: 3rem;}	   
+			.close-picker{ font-size: 1.6rem !important; line-height: 3rem;} 
+			.box{
+				width: 100%;
+				height: 100%;
+				display: block;
+				background: #cccccc;
+			}
+			.block{
+				margin-bottom: 10px;
+				background: #fff;
+			}
+			.edueational{background: #339999;color: #fff;}
+			.worktime{background: #339999;color: #fff;}
+			.wages{background: #339999;color: #fff;}
+			.typecolor{background: #339999;color: #fff;}
+		</style>
+		<div class="container">
+			<!-- <div class="row text-center t">您的公司资格已经审核通过</div>
+			<div class="row text-center t">您的公司名为  北京酷时代科技有限公司</div>
+			<div class="row top">
+				<div class="col-xs-6 text-center l">添加职位</div>
+				<div class="col-xs-6 text-center"><a href="qyyyzw.html">已有职位信息</a></div>
+			</div> -->
+			<box class="box">
+			<div class="block">
+			<div class="row m" style="padding-top: 15px;">
+				<div class="col-xs-3">公司名称</div>
+				<div class="col-xs-9"><input type="text" name="zhiwei" value="" placeholder="填写公司名称" class="form-control zhiwei company" /></div>
+			</div>
+			<div class="row m">
+				<div class="col-xs-3">行业选择</div>
+				<div class="col-xs-9"><input type="text" name="zhiwei" value="" placeholder="选择职位" class="form-control zhiwei industry" /></div>
+			</div>
+			<div class="row m">
+				<div class="col-xs-3">职位名称</div>
+				<div class="col-xs-9"><input type="text" name="zhiwei" value="" placeholder="选择职位" class="form-control zhiwei zhiweiming" /></div>
+			</div>
+			<div class="row m">
+				<div class="col-xs-3">职位描述</div>
+				<div class="col-xs-9"><input type="text" name="zhiwei" value="" placeholder="职位描述" class="form-control zhiwei positioncontent" /></div>
+			</div>
+			<div class="row m">
+				<div class="col-xs-3">工作地点</div>
+				<div class="col-xs-9" id="selectBtn"><input type="text" name="city-picker" id="city-picker" placeholder="选择地点" value="" class="form-control area sg-area-result" /></div>
+<!-- 				<div class="col-xs-9" id="distpicker">
+					<form class="form-inline">
+					  <div data-toggle="distpicker">
+					    <div class="form-group">
+					      <label class="sr-only" for="province1">Province</label>
+					      <select class="form-control" id="province1"></select>
+					    </div>
+					    <div class="form-group">
+					      <label class="sr-only" for="city1">City</label>
+					      <select class="form-control" id="city1"></select>
+					    </div>
+					    <div class="form-group">
+					      <label class="sr-only" for="district1">District</label>
+					      <select class="form-control" id="district1"></select>
+					    </div>
+					  </div>
+					</form>
+				</div> -->
+			</div>
+			
+			<div class="row m">
+				<div class="col-xs-3">需求年龄</div>
+				<div class="col-xs-9"><input type="text" name="city-picker" value="" placeholder="填写年龄" class="form-control agerange" /></div>
+			</div>
+			<div class="row m">
+				<div class="col-xs-3">佣金</div>
+				<div class="col-xs-9"><input type="text" name="city-picker" value="" placeholder="填写佣金" class="form-control commission" /></div>
+			</div>
+			<div class="row m">
+				<div class="col-xs-3">佣金预估</div>
+				<div class="col-xs-9"><input type="text" name="sex" value="" placeholder="佣金预计" class="form-control sex estimatecommission" /></div>
+			</div>
+			<div class="row m">
+				<div class="col-xs-3">面试地点</div>
+				<div class="col-xs-9"><input type="text" name="sex" value="" placeholder="面试地点" class="form-control sex interview" /></div>
+			</div>
+			</div>
+
+			<div class="block">
+			<div class="row m">
+				<div class="col-xs-3">需求性别</div>
+				<div class="col-xs-9"><input type="radio" name="sex" value="0" class="sex" id="buxian" />不限 <input type="radio" name="sex" value="1" class="sex" id="manradio" />男 <input type="radio" name="sex" value="2" class="sex" id="womanradio" /> 女</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					需求学历
+				</div>
+			</div>
+			<div class="row" style="padding: 15px;">
+				<div class="btn btn-default btn_record edueational">全部</div>
+				<div class="btn btn-default btn_record">高中</div>
+				<div class="btn btn-default btn_record">大专</div>
+				<div class="btn btn-default btn_record">本科</div>
+				<div class="btn btn-default btn_record">硕士</div>
+				<div class="btn btn-default btn_record">博士</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					需求资历
+				</div>
+			</div>
+			<div class="row" style="padding: 15px;">
+				<div class="btn btn-default btn_rworktime worktime">全部</div>
+				<div class="btn btn-default btn_rworktime">应届生</div>
+				<div class="btn btn-default btn_rworktime">1年以内</div>
+				<div class="btn btn-default btn_rworktime">1-3年</div>
+				<div class="btn btn-default btn_rworktime">3-5年</div>
+				<div class="btn btn-default btn_rworktime">5年以上</div>
+			</div>
+			</div>
+
+			<div class="block">
+			<div class="row">
+				<div class="col-xs-12">
+					薪资
+				</div>
+			</div>
+			
+
+			<div class="row" style="padding: 15px;">
+				
+				<div class="btn btn-default btn_wages wages">3k以下</div>
+				<div class="btn btn-default btn_wages">3k-5k</div>
+				<div class="btn btn-default btn_wages">5k-10k</div>
+				<div class="btn btn-default btn_wages">10k以上</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					是否可以兼职
+				</div>
+			</div>
+			
+
+			<div class="row" style="padding: 15px;">
+				
+				<div class="btn btn-default btn_type typecolor">全职</div>
+				<div class="btn btn-default btn_type ">兼职</div>
+				
+			</div>
+			</div>
+			<div class="block">
+			<div class="row">
+				<div class="col-xs-12">工作时间说明</div>
+			</div>
+			<div class="row" style="margin: 10px 0;">
+				<textarea  class="form-control workdaytime" rows="5" ></textarea>
+			</div>
+			</div>
+			<div class="block">
+			<div class="row">
+				<div class="col-xs-12">岗位说明</div>
+			</div>
+			<div class="row" style="margin: 10px 0;">
+				<textarea  class="form-control content" rows="5" ></textarea>
+			</div>
+			</div>
+			<div class="block">
+			<div class="row">
+				<div class="col-xs-12">福利待遇</div>
+			</div>
+			<div class="row" style="margin: 10px 0;">
+				<textarea  class="form-control welfare" rows="5" ></textarea>
+			</div>
+			</div>
+			<div class="btn btn-success" id="releasejob" onclick="publish()" style=" width: 100%; padding:10px 0; font-size: 1.7rem; background: #ffa328; border: none;">
+				职位发布
+			</div>
+			<div class="btn btn-success" id="alterjob" onclick="alterjob()" style=" width: 100%; padding:10px 0; font-size: 1.7rem; background: #ffa328; border: none; display: none;">
+				修改职位
+			</div>
+			</div>
+		</div>
+		<div class="hide1" ></div><!-- 
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+	    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+	    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+	    <script type="text/javascript" src="//g.alicdn.com/msui/sm/0.6.2/js/sm-city-picker.min.js" charset="utf-8"></script> -->
+
+
+
+	    <!-- me -->
+	     <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+
+		<!-- 省市三级联动 -->
+		<script type="text/javascript" src='js/iscroll.js'></script>   
+		<script type="text/javascript" src='js/SG_area_select.js'></script>
+
+    	<script type="text/javascript" src="js/vue.min.js"></script>
+    	<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="job_ajax.js"></script>
+
+
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+		$('#selectBtn').on('click',function(){
+			$.areaSelect(); 
+		})	
+
+	})
+		</script>
+
+	    <script>
+//	    	var js = "{'id':''}"
+//	    	$.ajax({
+//              type: "POST",
+//              url: "api/service",
+//              beforeSend: function(request) {
+//                  request.setRequestHeader("req", "210");
+//              },
+//              dataType:"json",
+//              data:js,
+//              success: function(result) {
+//                  console.log(result);
+//              }
+//          });
+		    //         $(function(){
+		    //         	var val;
+		    //         	$.ajax({
+			   //              type: "POST",
+			   //              url: "api/service",
+			   //              beforeSend: function(request) {
+			   //                  request.setRequestHeader("req", "220");
+			   //              },
+			   //              dataType:"json",
+			   //              success: function(result) {
+			   //              	var i = 0 ;
+			   //              	for(i;i<result.resdata['list'].length;i++){
+
+			   //              		var a  = "'"+result.resdata['list'][i]['list'][0].name+"',";
+			   //              		$(".hide1").append(a);
+			   //              	}
+			   //                  console.log(result.resdata);
+			   //                  var v = $(".hide1").html();
+			                    
+			   //                  var val = "["+v.substring(0,v.length-1)+"]";
+				    			
+				  //   			alert(val);
+			   //              }
+			   //          });
+
+		    //         })
+		            
+		                
+		                
+				  // $("#city-picker").cityPicker({
+				  //   toolbarTemplate: '<header class="bar bar-nav">\
+				  //   <button class="button button-link pull-right close-picker">确定</button>\
+				  //   <h1 class="title">选择城市</h1>\
+				  //   </header>'
+				  // });
+				  
+//		    $(".zhiwei").picker({
+//		    	
+//			  toolbarTemplate: '<header class="bar bar-nav">\
+//			  <button class="button button-link pull-right close-picker">确定</button>\
+//			  <h1 class="title">请选择职位</h1>\
+//			  </header>',
+//			  cols: [
+//			    {
+//			      textAlign: 'center',
+//			      values: val
+//			    }
+//			  ]
+//			});
+		</script>
+	</body>
+</html>
